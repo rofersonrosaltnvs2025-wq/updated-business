@@ -13,7 +13,6 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Custom scrollbar for sleeker UI */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -79,12 +78,12 @@
                     <span class="ml-auto text-xs bg-indigo-500/40 text-indigo-100 px-1.5 py-0.5 rounded">Hot</span>
                 </button>
 
-                <button onclick="switchTab('credittocash')" id="nav-credittocash" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 bg-indigo-600 text-white shadow-lg shadow-indigo-600/30">
+                <button onclick="switchTab('credittocash')" id="nav-credittocash" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
                     <i data-lucide="wallet" class="w-5 h-5 text-emerald-400"></i>
                     <span>CREDIT TO CASH</span>
                 </button>
 
-                <button onclick="switchTab('boosting')" id="nav-boosting" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
+                <button onclick="switchTab('boosting')" id="nav-boosting" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 bg-indigo-600 text-white shadow-lg shadow-indigo-600/30">
                     <i data-lucide="zap" class="w-5 h-5 text-amber-400"></i>
                     <span>BOOSTING PANEL</span>
                 </button>
@@ -115,7 +114,7 @@
                 </div>
                 <div>
                     <p class="text-xs font-semibold text-gray-200">System Live & Operational</p>
-                    <p class="text-[11px] text-gray-400">Instant Cashout Processing</p>
+                    <p class="text-[11px] text-gray-400">Social Media Boosting Active</p>
                 </div>
             </div>
         </div>
@@ -191,7 +190,6 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                
                 <!-- Left Column: Car Preview & Details -->
                 <div class="lg:col-span-5 space-y-6">
                     <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
@@ -216,7 +214,6 @@
                             </div>
                         </div>
 
-                        <!-- Vehicle Specs -->
                         <div class="p-5 space-y-3 bg-gray-900/50">
                             <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Unit Features & Specifications</h4>
                             <div class="grid grid-cols-2 gap-3 text-sm">
@@ -252,7 +249,6 @@
                             <p class="text-xs text-gray-400 mt-1">Fill out the details below to reserve your seats.</p>
                         </div>
 
-                        <!-- Fixed Rental Option Display -->
                         <div class="space-y-2">
                             <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Service Type</label>
                             <div class="relative">
@@ -263,7 +259,6 @@
                             </div>
                         </div>
 
-                        <!-- Available Travel Dates Selection -->
                         <div class="space-y-2">
                             <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider flex items-center justify-between">
                                 <span>Select Trip Date (Available Slots)</span>
@@ -279,7 +274,6 @@
                             </select>
                         </div>
 
-                        <!-- Pick-up & Drop-off Locations Grid -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="space-y-2">
                                 <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Pick-up Location</label>
@@ -298,7 +292,6 @@
                             </div>
                         </div>
 
-                        <!-- Passenger Count & Contact Number Grid -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="space-y-2">
                                 <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Number of Passengers</label>
@@ -321,7 +314,6 @@
                             </div>
                         </div>
 
-                        <!-- Full Name & Special Notes -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="space-y-2">
                                 <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Full Name</label>
@@ -334,7 +326,6 @@
                             </div>
                         </div>
 
-                        <!-- Total Fare Summary Box -->
                         <div class="bg-gray-950 p-4 rounded-xl border border-gray-800 flex items-center justify-between">
                             <div>
                                 <p class="text-xs text-gray-400">Total Computed Fare:</p>
@@ -343,7 +334,6 @@
                             <span class="text-xs text-gray-500 italic">₱750 × <span id="passengerMultiplier">1</span> passenger(s)</span>
                         </div>
 
-                        <!-- Submit Button -->
                         <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-indigo-600/30 transition transform active:scale-[0.99] flex items-center justify-center space-x-2">
                             <i data-lucide="check-circle" class="w-5 h-5"></i>
                             <span>CONFIRM CAR BOOKING</span>
@@ -354,7 +344,7 @@
         </section>
 
         <!-- SECTION 3: CREDIT TO CASH TAB -->
-        <section id="tab-credittocash" class="tab-content space-y-6">
+        <section id="tab-credittocash" class="tab-content hidden space-y-6">
             <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800">
                 <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
                     <i data-lucide="wallet" class="text-emerald-400 w-7 h-7"></i>
@@ -366,20 +356,18 @@
             <div class="max-w-2xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
                 <form id="creditForm" onsubmit="handleCreditSubmit(event)" class="space-y-5">
                     
-                    <!-- Fixed Provider Display -->
                     <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">CASHOUT SERVICE</label>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Provider Service</label>
                         <div class="relative">
-                            <input type="text" value="CREDIT CASHOUT" readonly class="w-full bg-gray-800/80 border border-gray-700 text-emerald-400 font-bold p-3.5 rounded-xl text-sm focus:outline-none cursor-not-allowed">
+                            <input type="text" value="Provider Credit Cashout" readonly class="w-full bg-gray-800/80 border border-gray-700 text-emerald-400 font-bold p-3.5 rounded-xl text-sm focus:outline-none cursor-not-allowed">
                             <span class="absolute right-3.5 top-3.5 bg-emerald-500/20 text-emerald-300 text-xs px-2.5 py-0.5 rounded-md font-bold border border-emerald-500/30">
                                 ACTIVE
                             </span>
                         </div>
                     </div>
 
-                    <!-- Cashout Amount & Rate Info -->
                     <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Cash Out Amount(PHP)</label>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Amount to Cash Out (PHP)</label>
                         <div class="relative">
                             <span class="absolute left-4 top-3.5 font-bold text-gray-400">₱</span>
                             <input type="number" id="creditAmount" min="100" placeholder="e.g. 1500 or 5000" oninput="calculateCreditCashout()" required class="w-full bg-gray-950 border border-gray-700 text-white pl-8 pr-4 py-3.5 rounded-xl text-base font-bold focus:outline-none focus:border-emerald-500 transition">
@@ -390,7 +378,6 @@
                         </div>
                     </div>
 
-                    <!-- Dynamic You Will Receive Display Box -->
                     <div class="bg-gradient-to-r from-emerald-950/60 to-gray-950 p-5 rounded-2xl border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div>
                             <span class="text-xs uppercase font-extrabold text-emerald-400 tracking-wider">YOU WILL RECEIVE (NET CASH):</span>
@@ -398,10 +385,10 @@
                         </div>
                         <div class="text-left sm:text-right text-xs text-gray-400 border-t sm:border-t-0 border-gray-800 pt-2 sm:pt-0 w-full sm:w-auto">
                             <p>Deducted Fee: <strong id="feeDisplay" class="text-rose-400 font-bold">₱0.00</strong></p>
+                            <p class="text-[11px] text-gray-500 mt-0.5">Instant Transfer guaranteed</p>
                         </div>
                     </div>
 
-                    <!-- Target Bank / E-Wallet Selection -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="space-y-2">
                             <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Select Payout Option</label>
@@ -421,13 +408,11 @@
                         </div>
                     </div>
 
-                    <!-- Account Name -->
                     <div class="space-y-2">
                         <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Account Holder Full Name</label>
                         <input type="text" id="payoutAccName" placeholder="Juan Dela Cruz" required class="w-full bg-gray-950 border border-gray-700 text-white p-3.5 rounded-xl text-sm focus:outline-none focus:border-emerald-500 transition">
                     </div>
 
-                    <!-- Submit Button -->
                     <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold py-4 px-6 rounded-xl shadow-lg shadow-emerald-600/25 transition transform active:scale-[0.99] flex items-center justify-center space-x-2 text-base">
                         <i data-lucide="send" class="w-5 h-5"></i>
                         <span>SUBMIT CASHOUT REQUEST</span>
@@ -436,46 +421,71 @@
             </div>
         </section>
 
-        <!-- SECTION 4: BOOSTING PANEL TAB -->
-        <section id="tab-boosting" class="tab-content hidden space-y-6">
-            <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800">
-                <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
-                    <i data-lucide="zap" class="text-amber-400 w-7 h-7"></i>
-                    Game Boosting Services
-                </h2>
-                <p class="text-gray-400 text-sm mt-1">Fast and safe rank boosting for your favorite games.</p>
+        <!-- SECTION 4: BOOSTING PANEL TAB (UPDATED DYNAMIC SOCIAL MEDIA) -->
+        <section id="tab-boosting" class="tab-content space-y-6">
+            <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
+                        <i data-lucide="zap" class="text-amber-400 w-7 h-7"></i>
+                        Social Media Boosting Panel
+                    </h2>
+                    <p class="text-gray-400 text-sm mt-1">Select category and package to boost your online presence instantly.</p>
+                </div>
+                <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs px-3 py-1.5 rounded-full font-semibold self-start md:self-auto">
+                    Instant Automated Delivery
+                </span>
             </div>
 
-            <div class="max-w-xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-5">
-                <form id="boostingForm" onsubmit="handleBoostingSubmit(event)" class="space-y-4">
+            <div class="max-w-3xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+                <form id="boostingForm" onsubmit="handleBoostingSubmit(event)" class="space-y-5">
+                    
+                    <!-- 1. Category Selection -->
                     <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase">Select Game</label>
-                        <select id="boostGame" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-amber-500">
-                            <option value="MIR4">MIR4</option>
-                            <option value="Legend of Ymir">Legend of Ymir</option>
-                            <option value="Mobile Legends">Mobile Legends: Bang Bang</option>
-                            <option value="Valorant">Valorant</option>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Select Platform Category</label>
+                        <select id="boostCategory" onchange="updateBoostingServices()" required class="w-full bg-gray-950 border border-gray-700 text-white p-3.5 rounded-xl text-sm font-semibold focus:outline-none focus:border-amber-500 transition">
+                            <option value="Facebook" selected>Facebook</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="TikTok">TikTok</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="Telegram">Telegram</option>
+                            <option value="Twitch">Twitch</option>
                         </select>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="space-y-2">
-                            <label class="block text-xs font-semibold text-gray-300 uppercase">Current Rank / Level</label>
-                            <input type="text" id="currentRank" placeholder="e.g. Epic V / Lvl 60" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="block text-xs font-semibold text-gray-300 uppercase">Target Rank / Goal</label>
-                            <input type="text" id="targetRank" placeholder="e.g. Mythic / Lvl 80" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
-                        </div>
-                    </div>
-
+                    <!-- 2. Service Type Selection -->
                     <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase">In-Game IGN / ID</label>
-                        <input type="text" id="gameAccountId" placeholder="User IGN / Server ID" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Select Service Type</label>
+                        <select id="boostServiceType" onchange="updateBoostingPackages()" required class="w-full bg-gray-950 border border-gray-700 text-white p-3.5 rounded-xl text-sm font-semibold focus:outline-none focus:border-amber-500 transition">
+                            <!-- Populated dynamically via JS -->
+                        </select>
                     </div>
 
-                    <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-amber-600/20 transition">
-                        ORDER BOOSTING SERVICE
+                    <!-- 3. Package Selection (Rate & Quantity) -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Select Package & Rate</label>
+                        <select id="boostPackage" onchange="calculateBoostingTotal()" required class="w-full bg-gray-950 border border-gray-700 text-white p-3.5 rounded-xl text-sm font-semibold focus:outline-none focus:border-amber-500 transition">
+                            <!-- Populated dynamically via JS -->
+                        </select>
+                    </div>
+
+                    <!-- Target Link / Handle -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Target Page / Post / Account Link</label>
+                        <input type="text" id="boostTargetLink" placeholder="https://facebook.com/yourpage or Post URL" required class="w-full bg-gray-950 border border-gray-700 text-white p-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500 transition">
+                    </div>
+
+                    <!-- Computed Total Display -->
+                    <div class="bg-gray-950 p-4 rounded-xl border border-gray-800 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-400">Total Service Fee:</p>
+                            <p class="text-2xl font-black text-amber-400" id="boostTotalDisplay">₱0.00</p>
+                        </div>
+                        <span class="text-xs text-gray-500">Fast Auto-Processing</span>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-extrabold py-4 px-6 rounded-xl shadow-lg shadow-amber-600/20 transition transform active:scale-[0.99] flex items-center justify-center space-x-2 text-base">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                        <span>ORDER BOOSTING SERVICE</span>
                     </button>
                 </form>
             </div>
@@ -585,12 +595,171 @@
     <script>
         const STORAGE_KEY = 'ROFS_dashboard_orders_db_v1';
 
+        // PRICELIST DATA STRUCTURE FROM IMAGE PRICELISTS
+        const boostingData = {
+            Facebook: {
+                "Facebook Followers": [
+                    { qty: "500 Followers", price: 80 },
+                    { qty: "1k Followers", price: 130 },
+                    { qty: "2k Followers", price: 260 },
+                    { qty: "3k Followers", price: 390 },
+                    { qty: "4k Followers", price: 520 },
+                    { qty: "5k Followers", price: 650 },
+                    { qty: "6k Followers", price: 780 },
+                    { qty: "7k Followers", price: 910 },
+                    { qty: "8k Followers", price: 1040 },
+                    { qty: "9k Followers", price: 1170 },
+                    { qty: "10k Followers", price: 1200 },
+                    { qty: "20k Followers", price: 2400 },
+                    { qty: "30k Followers", price: 3600 },
+                    { qty: "40k Followers", price: 4800 },
+                    { qty: "50k Followers", price: 6000 },
+                    { qty: "60k Followers", price: 7200 },
+                    { qty: "70k Followers", price: 8400 },
+                    { qty: "100k Followers", price: 11000 }
+                ],
+                "Facebook Reactions": [
+                    { qty: "500 Reactions", price: 70 },
+                    { qty: "1k Reactions", price: 120 },
+                    { qty: "2k Reactions", price: 240 },
+                    { qty: "3k Reactions", price: 360 },
+                    { qty: "4k Reactions", price: 480 },
+                    { qty: "5k Reactions", price: 600 },
+                    { qty: "6k Reactions", price: 720 },
+                    { qty: "7k Reactions", price: 840 },
+                    { qty: "8k Reactions", price: 960 },
+                    { qty: "9k Reactions", price: 1080 },
+                    { qty: "10k Reactions", price: 1200 },
+                    { qty: "20k Reactions", price: 2400 },
+                    { qty: "30k Reactions", price: 2900 },
+                    { qty: "40k Reactions", price: 3400 },
+                    { qty: "50k Reactions", price: 4000 },
+                    { qty: "60k Reactions", price: 4500 },
+                    { qty: "70k Reactions", price: 5000 },
+                    { qty: "100k Reactions", price: 6000 }
+                ],
+                "Facebook Views": [
+                    { qty: "1k Views", price: 30 },
+                    { qty: "2k Views", price: 60 },
+                    { qty: "3k Views", price: 90 },
+                    { qty: "4k Views", price: 120 },
+                    { qty: "5k Views", price: 150 },
+                    { qty: "6k Views", price: 180 },
+                    { qty: "7k Views", price: 210 },
+                    { qty: "8k Views", price: 240 },
+                    { qty: "9k Views", price: 270 },
+                    { qty: "10k Views", price: 300 },
+                    { qty: "20k Views", price: 600 },
+                    { qty: "50k Views", price: 1500 },
+                    { qty: "100k Views", price: 3000 },
+                    { qty: "150k Views", price: 4500 },
+                    { qty: "300k Views", price: 9000 }
+                ],
+                "Facebook Shares": [
+                    { qty: "1k Photo Shares", price: 50 },
+                    { qty: "2k Photo Shares", price: 100 },
+                    { qty: "1k Video Shares", price: 150 },
+                    { qty: "2k Video Shares", price: 300 }
+                ]
+            },
+            Instagram: {
+                "Instagram Followers (Mix Countries)": [
+                    { qty: "100 Followers", price: 60 },
+                    { qty: "200 Followers", price: 90 },
+                    { qty: "300 Followers", price: 120 },
+                    { qty: "400 Followers", price: 150 },
+                    { qty: "500 Followers", price: 180 },
+                    { qty: "1k Followers", price: 350 },
+                    { qty: "2k Followers", price: 700 },
+                    { qty: "3k Followers", price: 1040 },
+                    { qty: "4k Followers", price: 1390 },
+                    { qty: "5k Followers", price: 1740 },
+                    { qty: "10k Followers", price: 2090 },
+                    { qty: "15k Followers", price: 4000 }
+                ],
+                "Instagram Likes": [
+                    { qty: "500 Likes", price: 50 },
+                    { qty: "1k Likes", price: 80 },
+                    { qty: "2k Likes", price: 160 },
+                    { qty: "3k Likes", price: 240 },
+                    { qty: "4k Likes", price: 320 },
+                    { qty: "5k Likes", price: 400 },
+                    { qty: "6k Likes", price: 480 },
+                    { qty: "7k Likes", price: 560 },
+                    { qty: "8k Likes", price: 640 },
+                    { qty: "9k Likes", price: 720 },
+                    { qty: "10k Likes", price: 800 },
+                    { qty: "20k Likes", price: 1600 }
+                ],
+                "Instagram Views": [
+                    { qty: "1k Views", price: 30 },
+                    { qty: "2k Views", price: 60 },
+                    { qty: "3k Views", price: 90 },
+                    { qty: "4k Views", price: 120 },
+                    { qty: "5k Views", price: 150 },
+                    { qty: "6k Views", price: 180 },
+                    { qty: "7k Views", price: 210 },
+                    { qty: "8k Views", price: 240 },
+                    { qty: "9k Views", price: 270 },
+                    { qty: "10k Views", price: 300 },
+                    { qty: "20k Views", price: 600 },
+                    { qty: "50k Views", price: 1500 },
+                    { qty: "100k Views", price: 3000 },
+                    { qty: "150k Views", price: 4500 },
+                    { qty: "300k Views", price: 9000 }
+                ]
+            },
+            TikTok: {
+                "TikTok Followers": [
+                    { qty: "1k Followers", price: 300 },
+                    { qty: "5k Followers", price: 1400 },
+                    { qty: "10k Followers", price: 2700 }
+                ],
+                "TikTok Likes": [
+                    { qty: "1k Likes", price: 100 },
+                    { qty: "5k Likes", price: 450 },
+                    { qty: "10k Likes", price: 850 }
+                ],
+                "TikTok Views": [
+                    { qty: "1k Views", price: 20 },
+                    { qty: "10k Views", price: 180 },
+                    { qty: "50k Views", price: 800 }
+                ]
+            },
+            YouTube: {
+                "YouTube Subscribers": [
+                    { qty: "100 Subscribers", price: 250 },
+                    { qty: "500 Subscribers", price: 1100 },
+                    { qty: "1k Subscribers", price: 2000 }
+                ],
+                "YouTube Views": [
+                    { qty: "1k Views", price: 150 },
+                    { qty: "5k Views", price: 700 },
+                    { qty: "10k Views", price: 1350 }
+                ]
+            },
+            Telegram: {
+                "Telegram Members / Subscribers": [
+                    { qty: "500 Members", price: 150 },
+                    { qty: "1k Members", price: 280 },
+                    { qty: "5k Members", price: 1300 }
+                ]
+            },
+            Twitch: {
+                "Twitch Followers": [
+                    { qty: "500 Followers", price: 120 },
+                    { qty: "1k Followers", price: 220 },
+                    { qty: "5k Followers", price: 950 }
+                ]
+            }
+        };
+
         function getStoredOrders() {
             const data = localStorage.getItem(STORAGE_KEY);
             if (!data) {
                 const defaultSample = [
                     {
-                        id: 'CAR-84920',
+                        id: 'ROFS-84920',
                         date: '2026-10-09 14:30',
                         type: 'Car Booking',
                         vehicle: 'Mitsubishi Xpander (6 Seater)',
@@ -658,9 +827,9 @@
 
             if (rawAmount > 0) {
                 if (rawAmount < 2000) {
-                    fee = 200; // Fixed ₱200 fee below ₱2,000
+                    fee = 200;
                 } else {
-                    fee = rawAmount * 0.10; // 10% fee for ₱2,000 and above
+                    fee = rawAmount * 0.10;
                 }
             }
 
@@ -668,6 +837,49 @@
 
             document.getElementById('feeDisplay').innerText = `₱${fee.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
             document.getElementById('netReceiveDisplay').innerText = `₱${netReceive.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        }
+
+        // DYNAMIC BOOSTING PANEL LOGIC
+        function updateBoostingServices() {
+            const category = document.getElementById('boostCategory').value;
+            const serviceTypeSelect = document.getElementById('boostServiceType');
+            serviceTypeSelect.innerHTML = '';
+
+            const services = boostingData[category];
+            if (services) {
+                Object.keys(services).forEach(serviceName => {
+                    const opt = document.createElement('option');
+                    opt.value = serviceName;
+                    opt.innerText = serviceName;
+                    serviceTypeSelect.appendChild(opt);
+                });
+            }
+            updateBoostingPackages();
+        }
+
+        function updateBoostingPackages() {
+            const category = document.getElementById('boostCategory').value;
+            const serviceType = document.getElementById('boostServiceType').value;
+            const packageSelect = document.getElementById('boostPackage');
+            packageSelect.innerHTML = '';
+
+            if (boostingData[category] && boostingData[category][serviceType]) {
+                const packages = boostingData[category][serviceType];
+                packages.forEach(pkg => {
+                    const opt = document.createElement('option');
+                    opt.value = pkg.price;
+                    opt.setAttribute('data-qty', pkg.qty);
+                    opt.innerText = `${pkg.qty} - ₱${pkg.price.toLocaleString()}`;
+                    packageSelect.appendChild(opt);
+                });
+            }
+            calculateBoostingTotal();
+        }
+
+        function calculateBoostingTotal() {
+            const packageSelect = document.getElementById('boostPackage');
+            const price = parseFloat(packageSelect.value) || 0;
+            document.getElementById('boostTotalDisplay').innerText = `₱${price.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
         }
 
         // Handle Car Booking Submission
@@ -689,7 +901,7 @@
 
             const totalFare = passengers * 750;
             const newOrder = {
-                id: 'CAR-' + Math.floor(10000 + Math.random() * 90000),
+                id: 'ROFS-' + Math.floor(10000 + Math.random() * 90000),
                 date: new Date().toLocaleString('en-CA', { hour12: false }).replace(',', ''),
                 type: 'Car Booking',
                 vehicle: 'Mitsubishi Xpander (6 Seater)',
@@ -727,11 +939,11 @@
             const netReceive = amount - fee;
 
             const newOrder = {
-                id: 'CASHOUT-' + Math.floor(10000 + Math.random() * 90000),
+                id: 'CASH-' + Math.floor(10000 + Math.random() * 90000),
                 date: new Date().toLocaleString('en-CA', { hour12: false }).replace(',', ''),
                 type: 'Credit to Cash',
                 vehicle: 'N/A',
-                serviceType: 'Credit to Cash',
+                serviceType: 'Provider Credit Cashout',
                 tripDate: 'N/A',
                 pickup: 'N/A',
                 dropoff: 'N/A',
@@ -752,35 +964,39 @@
             switchTab('myorders');
         }
 
-        // Handle Game Boosting Submission
+        // Handle Game & Social Boosting Submission
         function handleBoostingSubmit(e) {
             e.preventDefault();
-            const game = document.getElementById('boostGame').value;
-            const currentR = document.getElementById('currentRank').value;
-            const targetR = document.getElementById('targetRank').value;
-            const handle = document.getElementById('gameAccountId').value;
+            const category = document.getElementById('boostCategory').value;
+            const serviceType = document.getElementById('boostServiceType').value;
+            const packageSelect = document.getElementById('boostPackage');
+            const selectedOption = packageSelect.options[packageSelect.selectedIndex];
+            const qty = selectedOption.getAttribute('data-qty');
+            const price = parseFloat(packageSelect.value);
+            const targetLink = document.getElementById('boostTargetLink').value.trim();
 
             const newOrder = {
                 id: 'BOOST-' + Math.floor(10000 + Math.random() * 90000),
                 date: new Date().toLocaleString('en-CA', { hour12: false }).replace(',', ''),
-                type: 'Game Boosting',
+                type: 'Boosting Panel',
                 vehicle: 'N/A',
-                serviceType: game,
+                serviceType: `${category} - ${serviceType}`,
                 tripDate: 'N/A',
                 pickup: 'N/A',
                 dropoff: 'N/A',
                 passengers: 0,
-                customerName: handle,
-                contact: handle,
-                total: 500,
+                customerName: targetLink,
+                contact: targetLink,
+                total: price,
                 status: 'Pending',
-                notes: `Rank/Target: ${currentR} -> ${targetR}`
+                notes: `Package: ${qty} | Link: ${targetLink}`
             };
 
             const orders = getStoredOrders();
             orders.unshift(newOrder);
             saveOrders(orders);
             document.getElementById('boostingForm').reset();
+            calculateBoostingTotal();
             showToast('Boosting order placed successfully!');
             switchTab('myorders');
         }
@@ -972,6 +1188,7 @@
             lucide.createIcons();
             calculateCarTotal();
             calculateCreditCashout();
+            updateBoostingServices();
             renderOrders();
             renderAdminPanel();
             updateOrdersBadge();
