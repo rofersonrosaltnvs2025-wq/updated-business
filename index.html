@@ -590,7 +590,7 @@
             if (!data) {
                 const defaultSample = [
                     {
-                        id: 'ROFS-84920',
+                        id: 'CAR-84920',
                         date: '2026-10-09 14:30',
                         type: 'Car Booking',
                         vehicle: 'Mitsubishi Xpander (6 Seater)',
@@ -689,7 +689,7 @@
 
             const totalFare = passengers * 750;
             const newOrder = {
-                id: 'ROFS-' + Math.floor(10000 + Math.random() * 90000),
+                id: 'CAR-' + Math.floor(10000 + Math.random() * 90000),
                 date: new Date().toLocaleString('en-CA', { hour12: false }).replace(',', ''),
                 type: 'Car Booking',
                 vehicle: 'Mitsubishi Xpander (6 Seater)',
@@ -727,11 +727,11 @@
             const netReceive = amount - fee;
 
             const newOrder = {
-                id: 'CASH-' + Math.floor(10000 + Math.random() * 90000),
+                id: 'CASHOUT-' + Math.floor(10000 + Math.random() * 90000),
                 date: new Date().toLocaleString('en-CA', { hour12: false }).replace(',', ''),
                 type: 'Credit to Cash',
                 vehicle: 'N/A',
-                serviceType: 'Provider Credit Cashout',
+                serviceType: 'Credit to Cash',
                 tripDate: 'N/A',
                 pickup: 'N/A',
                 dropoff: 'N/A',
