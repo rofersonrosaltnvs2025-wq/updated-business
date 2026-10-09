@@ -294,7 +294,7 @@
                                 <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Drop-off Destination</label>
                                 <div class="relative">
                                     <i data-lucide="navigation-2" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
-                                    <input type="text" id="dropoffLocation" value="BATANGAS WAWA PORT" readonly required class="w-full bg-gray-950 border border-gray-700 text-white pl-10 pr-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition cursor-not-allowed">
+                                    <input type="text" id="dropoffLocation" required placeholder="e.g. Baguio City Center / Tagaytay" class="w-full bg-gray-950 border border-gray-700 text-white pl-10 pr-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition cursor-not-allowed">
                                 </div>
                             </div>
                         </div>
@@ -329,6 +329,10 @@
                                 <input type="text" id="fullName" required placeholder="Juan Dela Cruz" class="w-full bg-gray-950 border border-gray-700 text-white px-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
                             </div>
 
+                            <div class="space-y-2">
+                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Special Requests / Notes</label>
+                                <input type="text" id="specialNotes" placeholder="e.g. With 2 luggage bags" class="w-full bg-gray-950 border border-gray-700 text-white px-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
+                            </div>
                         </div>
 
                         <!-- Total Fare Summary Box -->
@@ -350,126 +354,43 @@
             </div>
         </section>
 
-<!-- SECTION 3: CREDIT CASHOUT TAB -->
-<section id="tab-credittocash" class="tab-content hidden space-y-6">
-    <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800">
-        <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
-            <i data-lucide="wallet" class="text-emerald-400 w-7 h-7"></i>
-            Credit Cashout
-        </h2>
-        <p class="text-gray-400 text-sm mt-1">
-            Submit your cashout request and review your estimated payout.
-        </p>
-    </div>
-
-    <div class="max-w-xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-5">
-        <form id="creditForm" onsubmit="handleCreditSubmit(event)" class="space-y-4">
-
-            <div class="space-y-2">
-                <label class="block text-xs font-semibold text-gray-300 uppercase">
-                    Service
-                </label>
-                <input
-                    type="text"
-                    value="Credit Cashout"
-                    readonly
-                    class="w-full bg-gray-800 border border-gray-700 text-gray-200 p-3 rounded-xl text-sm cursor-not-allowed">
+        <!-- SECTION 3: CREDIT TO CASH TAB -->
+        <section id="tab-credittocash" class="tab-content hidden space-y-6">
+            <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
+                    <i data-lucide="wallet" class="text-emerald-400 w-7 h-7"></i>
+                    Credit To Cash Conversion
+                </h2>
+                <p class="text-gray-400 text-sm mt-1">I-convert ang inyong e-wallet or credit balance sa instant cash.</p>
             </div>
 
-            <div class="space-y-2">
-                <label for="creditAmount" class="block text-xs font-semibold text-gray-300 uppercase">
-                    Cash Out Amount (PHP)
-                </label>
-                <input
-                    type="number"
-                    id="creditAmount"
-                    min="500"
-                    step="0.01"
-                    placeholder="e.g. 2000"
-                    required
-                    oninput="calculateCashout()"
-                    class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+            <div class="max-w-xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-5">
+                <form id="creditForm" onsubmit="handleCreditSubmit(event)" class="space-y-4">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase">Provider / E-Wallet</label>
+                        <select id="creditProvider" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+                            <option value="GCash">GCash Cash-In / Encashment</option>
+                            <option value="Maya">Maya Wallet</option>
+                            <option value="Credit Card">Credit Card Cashout</option>
+                        </select>
+                    </div>
 
-                <p class="text-xs text-gray-500">
-                    Enter the amount you want to cash out.
-                </p>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase">Amount to Cash Out (PHP)</label>
+                        <input type="number" id="creditAmount" min="500" placeholder="e.g. 2000" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase">Receiver Account Details (GCash/Bank Number)</label>
+                        <input type="text" id="accountDetails" placeholder="09xxxxxxxxx or Bank Acct No." required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition">
+                        SUBMIT CASH-OUT REQUEST
+                    </button>
+                </form>
             </div>
-
-            <!-- Payout Summary -->
-            <div class="bg-gray-950 border border-gray-800 rounded-xl p-4 space-y-3">
-                <div class="flex items-center justify-between gap-4">
-                    <span class="text-sm text-gray-400">Service Fee</span>
-                    <span id="cashoutFeeDisplay" class="text-sm font-semibold text-gray-200">
-                        ₱0.00
-                    </span>
-                </div>
-
-                <div class="flex items-center justify-between gap-4 border-t border-gray-800 pt-3">
-                    <span class="text-sm text-gray-300 font-semibold">You Will Receive</span>
-                    <span id="cashoutReceiveDisplay" class="text-xl font-black text-emerald-400">
-                        ₱0.00
-                    </span>
-                </div>
-            </div>
-
-            <div class="space-y-2">
-                <label for="disbursementMethod" class="block text-xs font-semibold text-gray-300 uppercase">
-                    Disbursement Method
-                </label>
-                <select
-                    id="disbursementMethod"
-                    required
-                    class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
-                    <option value="" disabled selected>Select payout method</option>
-                    <option value="GCash">GCash</option>
-                    <option value="Maya">Maya</option>
-                    <option value="GoTyme">GoTyme</option>
-                    <option value="MariBank">MariBank</option>
-                    <option value="UnionBank">UnionBank</option>
-                    <option value="WisePH">WisePH</option>
-                </select>
-            </div>
-
-            <div class="space-y-2">
-                <label for="cashoutAccountNumber" class="block text-xs font-semibold text-gray-300 uppercase">
-                    Account Number
-                </label>
-                <input
-                    type="text"
-                    id="cashoutAccountNumber"
-                    required
-                    maxlength="100"
-                    autocomplete="off"
-                    placeholder="Enter your account number"
-                    class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
-            </div>
-
-            <div class="space-y-2">
-                <label for="cashoutAccountName" class="block text-xs font-semibold text-gray-300 uppercase">
-                    Account Holder Name
-                </label>
-                <input
-                    type="text"
-                    id="cashoutAccountName"
-                    required
-                    maxlength="100"
-                    autocomplete="name"
-                    placeholder="Name registered to the account"
-                    class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
-            </div>
-
-            <button
-                type="submit"
-                class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition">
-                SUBMIT CASHOUT REQUEST
-            </button>
-
-            <p class="text-xs text-gray-500 text-center">
-                Please verify your payout details before submitting.
-            </p>
-        </form>
-    </div>
-</section>
+        </section>
 
         <!-- SECTION 4: BOOSTING PANEL TAB -->
         <section id="tab-boosting" class="tab-content hidden space-y-6">
