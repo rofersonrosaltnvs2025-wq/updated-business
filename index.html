@@ -255,9 +255,9 @@
 
                         <!-- Fixed Rental Option Display -->
                         <div class="space-y-2">
-                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Rental Option / Service Type</label>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Service Type</label>
                             <div class="relative">
-                                <input type="text" value="Drop Off Service (Point to Point)" readonly class="w-full bg-gray-800/80 border border-gray-700 text-gray-200 px-4 py-3 rounded-xl font-semibold focus:outline-none cursor-not-allowed">
+                                <input type="text" value="DOOR TO DOOR SERVICE" readonly class="w-full bg-gray-800/80 border border-gray-700 text-gray-200 px-4 py-3 rounded-xl font-semibold focus:outline-none cursor-not-allowed">
                                 <div class="absolute right-3 top-3">
                                     <span class="bg-indigo-500/20 text-indigo-300 text-xs px-2.5 py-1 rounded-md font-bold border border-indigo-500/30">FIXED</span>
                                 </div>
@@ -268,7 +268,7 @@
                         <div class="space-y-2">
                             <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider flex items-center justify-between">
                                 <span>Select Trip Date (Available Slots)</span>
-                                <span class="text-indigo-400 text-[11px] font-normal">Admin Configured Dates</span>
+                                <span class="text-indigo-400 text-[11px] font-normal">AVAILABLE TRIP DATES</span>
                             </label>
                             <select id="travelDateSelect" required onchange="calculateCarTotal()" class="w-full bg-gray-950 border border-gray-700 text-white px-4 py-3 rounded-xl font-medium focus:outline-none focus:border-indigo-500 transition">
                                 <option value="" disabled selected>-- Select Available Trip Date --</option>
@@ -294,7 +294,7 @@
                                 <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Drop-off Destination</label>
                                 <div class="relative">
                                     <i data-lucide="navigation-2" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
-                                    <input type="text" id="dropoffLocation" required placeholder="e.g. Baguio City Center / Tagaytay" class="w-full bg-gray-950 border border-gray-700 text-white pl-10 pr-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
+                                    <input type="text" value="BATANGAS, WAWA PORT" readonly class="w-full bg-gray-800/80 border border-gray-700 text-gray-200 px-4 py-3 rounded-xl font-semibold focus:outline-none cursor-not-allowed">
                                 </div>
                             </div>
                         </div>
