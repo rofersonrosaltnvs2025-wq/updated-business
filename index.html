@@ -355,63 +355,42 @@
         </section>
 
         <!-- SECTION 3: CREDIT TO CASH TAB -->
-<section id="content-credit-cash" class="content-section hidden">
-                <h2 class="text-2xl font-bold mb-6 text-gray-800">Credit to Cash Exchange</h2>
+        <section id="tab-credittocash" class="tab-content hidden space-y-6">
+            <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
+                    <i data-lucide="wallet" class="text-emerald-400 w-7 h-7"></i>
+                    Credit To Cash Conversion
+                </h2>
+                <p class="text-gray-400 text-sm mt-1">I-convert ang inyong e-wallet or credit balance sa instant cash.</p>
+            </div>
 
-                <div class="max-w-2xl bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                    <form id="credit-cash-form" onsubmit="submitCreditCash(event)" class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Provider Service</label>
-                            <input type="text" value="Credit Cashout" disabled class="w-full bg-gray-100 border border-gray-300 rounded-lg p-2.5 text-sm font-semibold text-gray-700">
-                        </div>
+            <div class="max-w-xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-5">
+                <form id="creditForm" onsubmit="handleCreditSubmit(event)" class="space-y-4">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase">Provider / E-Wallet</label>
+                        <select id="creditProvider" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+                            <option value="GCash">GCash Cash-In / Encashment</option>
+                            <option value="Maya">Maya Wallet</option>
+                            <option value="Credit Card">Credit Card Cashout</option>
+                        </select>
+                    </div>
 
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Cashout Amount (PHP)</label>
-                            <input type="number" id="cc-amount" min="100" placeholder="e.g. 2500" oninput="calcCreditCash()" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
-                            <p class="text-xs text-gray-400 mt-1">* Fee Rate: Below ₱2,000 = ₱200 fixed fee | ₱2,000 and above = 10% fee</p>
-                        </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase">Amount to Cash Out (PHP)</label>
+                        <input type="number" id="creditAmount" min="500" placeholder="e.g. 2000" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
 
-                        <!-- YOU WILL RECEIVE DISPLAY -->
-                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 flex justify-between items-center">
-                            <div>
-                                <span class="text-xs text-blue-600 font-semibold uppercase">You Will Receive:</span>
-                                <h3 class="text-2xl font-black text-blue-700" id="cc-receive-amount">₱0.00</h3>
-                            </div>
-                            <div class="text-right text-xs text-gray-500">
-                                <span>Service Fee: </span>
-                                <span id="cc-fee-amount" class="font-bold text-red-500">₱0.00</span>
-                            </div>
-                        </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase">Receiver Account Details (GCash/Bank Number)</label>
+                        <input type="text" id="accountDetails" placeholder="09xxxxxxxxx or Bank Acct No." required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Disbursement Method</label>
-                                <select id="cc-bank" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="">-- Choose Bank / E-Wallet --</option>
-                                    <option value="GCASH">GCASH</option>
-                                    <option value="MAYA">MAYA</option>
-                                    <option value="GOTYME">GOTYME</option>
-                                    <option value="MARIBANK">MARIBANK</option>
-                                    <option value="WISE PH">WISE PH</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Account Number</label>
-                                <input type="text" id="cc-acc-num" placeholder="09XXXXXXXXX / Account No." required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Account Holder Name</label>
-                            <input type="text" id="cc-acc-name" placeholder="Juan Dela Cruz" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
-                        </div>
-
-                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">
-                            Submit Cashout Request
-                        </button>
-                    </form>
-                </div>
-            </section>
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition">
+                        SUBMIT CASH-OUT REQUEST
+                    </button>
+                </form>
+            </div>
+        </section>
 
         <!-- SECTION 4: BOOSTING PANEL TAB -->
         <section id="tab-boosting" class="tab-content hidden space-y-6">
