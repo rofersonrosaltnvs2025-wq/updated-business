@@ -3,72 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiz Gaming Services Dashboard</title>
+    <title>Wiz Gaming & Services - Dashboard</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        .active-tab {
-            background-color: #3B82F6;
-            color: #FFFFFF;
-            font-weight: 600;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for sleeker UI */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4b5563;
         }
     </style>
 </head>
-<body class="bg-gray-100 font-sans antialiased text-gray-800">
+<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col md:flex-row antialiased">
 
-    <div class="flex h-screen overflow-hidden">
-        
-        <!-- SIDEBAR NAVIGATION -->
-        <aside class="w-64 bg-slate-900 text-white flex flex-col justify-between shadow-lg">
-            <div>
-                <!-- LOGO / BUSINESS NAME -->
-                <div class="p-5 border-b border-slate-700 flex items-center space-x-3">
-                    <div class="bg-blue-600 p-2 rounded-lg text-white">
-                        <i class="fa-solid fa-gamepad text-xl"></i>
-                    </div>
-                    <div>
-                        <h1 class="font-bold text-lg leading-tight">Wiz Gaming</h1>
-                        <p class="text-xs text-gray-400">Services & Booking</p>
-                    </div>
-                </div>
-
-                <!-- NAVIGATION TABS -->
-                <nav class="p-4 space-y-2">
-                    <button onclick="switchTab('announcements')" id="tab-announcements" class="nav-btn active-tab w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80">
-                        <i class="fa-solid fa-bullhorn w-5 text-center"></i>
-                        <span>Announcement</span>
-                    </button>
-
-                    <button onclick="switchTab('book-car')" id="tab-book-car" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80">
-                        <i class="fa-solid fa-car w-5 text-center"></i>
-                        <span>Book a Car</span>
-                    </button>
-
-                    <button onclick="switchTab('credit-cash')" id="tab-credit-cash" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80">
-                        <i class="fa-solid fa-hand-holding-dollar w-5 text-center"></i>
-                        <span>Credit to Cash</span>
-                    </button>
-
-                    <button onclick="switchTab('boosting')" id="tab-boosting" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80">
-                        <i class="fa-solid fa-rocket w-5 text-center"></i>
-                        <span>Boosting Panel</span>
-                    </button>
-
-                    <div class="border-t border-slate-700 my-3"></div>
-
-                    <button onclick="switchTab('my-orders')" id="tab-my-orders" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80">
-                        <i class="fa-solid fa-receipt w-5 text-center"></i>
-                        <span>My Orders</span>
-                    </button>
-
-                    <button onclick="switchTab('admin-panel')" id="tab-admin-panel" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80 text-amber-400">
-                        <i class="fa-solid fa-user-shield w-5 text-center"></i>
-                        <span>Admin Panel</span>
-                    </button>
-                </nav>
+    <div class="md:hidden flex items-center justify-between bg-gray-900 border-b border-gray-800 p-4 sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-indigo-500/30">
+                W
             </div>
+            <div>
+                <h1 class="font-bold text-lg leading-tight text-white">WIZ SERVICES</h1>
+                <p class="text-xs text-indigo-400 font-medium">All-in-One Portal</p>
+            </div>
+        </div>
+        <button id="mobileMenuBtn" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-gray-800 transition">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </div>
+
+    <aside id="sidebar" class="fixed md:static inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition-transform duration-200 ease-in-out z-40 w-64 bg-gray-900 border-r border-gray-800/80 flex flex-col justify-between shrink-0 h-screen md:h-auto">
+        <div>
+            <!-- Desktop Brand Header -->
+            <div class="p-6 hidden md:flex items-center space-x-3 border-b border-gray-800/60">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-extrabold text-2xl text-white shadow-lg shadow-indigo-500/25">
+                    W
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-white tracking-wide">WIZ SERVICES</h1>
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                        Official Portal
+                    </span>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="p-4 space-y-1.5">
+                <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Main Menu</p>
+                
+                <button onclick="switchTab('announcement')" id="nav-announcement" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
+                    <i data-lucide="megaphone" class="w-5 h-5 text-indigo-400"></i>
+                    <span>ANNOUNCEMENT</span>
+                </button>
+
+                <button onclick="switchTab('bookcar')" id="nav-bookcar" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 bg-indigo-600 text-white shadow-lg shadow-indigo-600/30">
+                    <i data-lucide="car" class="w-5 h-5 text-indigo-200"></i>
+                    <span>BOOK A CAR</span>
+                    <span class="ml-auto text-xs bg-indigo-500/40 text-indigo-100 px-1.5 py-0.5 rounded">Hot</span>
+                </button>
+
+                <button onclick="switchTab('credittocash')" id="nav-credittocash" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
+                    <i data-lucide="wallet" class="w-5 h-5 text-emerald-400"></i>
+                    <span>CREDIT TO CASH</span>
+                </button>
+
+                <button onclick="switchTab('boosting')" id="nav-boosting" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
+                    <i data-lucide="zap" class="w-5 h-5 text-amber-400"></i>
+                    <span>BOOSTING PANEL</span>
+                </button>
+
+                <div class="pt-4 mt-4 border-t border-gray-800/60">
+                    <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Management</p>
+                    
+                    <button onclick="switchTab('myorders')" id="nav-myorders" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
+                        <i data-lucide="shopping-bag" class="w-5 h-5 text-blue-400"></i>
+                        <span>MY ORDERS</span>
+                        <span id="myOrdersBadge" class="ml-auto bg-indigo-500/20 text-indigo-300 text-xs px-2 py-0.5 rounded-full font-bold">0</span>
+                    </button>
+
+                    <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-rose-400"></i>
+                        <span>ADMIN PANEL</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
 
             <!-- FOOTER INFO -->
             <div class="p-4 border-t border-slate-700 text-xs text-gray-400 text-center">
