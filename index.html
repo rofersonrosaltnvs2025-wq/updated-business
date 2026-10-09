@@ -3,923 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiz Gaming & Services - Dashboard</title>
+    <title>Wiz Gaming Services Dashboard</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Custom scrollbar for sleeker UI */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1f2937;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #374151;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #4b5563;
+        .active-tab {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+            font-weight: 600;
         }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col md:flex-row antialiased">
+<body class="bg-gray-100 font-sans antialiased text-gray-800">
 
-    <div class="md:hidden flex items-center justify-between bg-gray-900 border-b border-gray-800 p-4 sticky top-0 z-50">
-        <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-indigo-500/30">
-                W
-            </div>
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- SIDEBAR NAVIGATION -->
+        <aside class="w-64 bg-slate-900 text-white flex flex-col justify-between shadow-lg">
             <div>
-                <h1 class="font-bold text-lg leading-tight text-white">WIZ SERVICES</h1>
-                <p class="text-xs text-indigo-400 font-medium">All-in-One Portal</p>
-            </div>
-        </div>
-        <button id="mobileMenuBtn" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-gray-800 transition">
-            <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
-    </div>
-
-    <aside id="sidebar" class="fixed md:static inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition-transform duration-200 ease-in-out z-40 w-64 bg-gray-900 border-r border-gray-800/80 flex flex-col justify-between shrink-0 h-screen md:h-auto">
-        <div>
-            <!-- Desktop Brand Header -->
-            <div class="p-6 hidden md:flex items-center space-x-3 border-b border-gray-800/60">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-extrabold text-2xl text-white shadow-lg shadow-indigo-500/25">
-                    W
+                <!-- LOGO / BUSINESS NAME -->
+                <div class="p-5 border-b border-slate-700 flex items-center space-x-3">
+                    <div class="bg-blue-600 p-2 rounded-lg text-white">
+                        <i class="fa-solid fa-gamepad text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-lg leading-tight">Wiz Gaming</h1>
+                        <p class="text-xs text-gray-400">Services & Booking</p>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="font-bold text-lg text-white tracking-wide">WIZ SERVICES</h1>
-                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                        Official Portal
-                    </span>
-                </div>
+
+                <!-- NAVIGATION TABS -->
+                <nav class="p-4 space-y-2">
+                    <button onclick="switchTab('announcements')" id="tab-announcements" class="nav-btn active-tab w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80">
+                        <i class="fa-solid fa-bullhorn w-5 text-center"></i>
+                        <span>Announcement</span>
+                    </button>
+
+                    <button onclick="switchTab('book-car')" id="tab-book-car" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80">
+                        <i class="fa-solid fa-car w-5 text-center"></i>
+                        <span>Book a Car</span>
+                    </button>
+
+                    <button onclick="switchTab('credit-cash')" id="tab-credit-cash" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80">
+                        <i class="fa-solid fa-hand-holding-dollar w-5 text-center"></i>
+                        <span>Credit to Cash</span>
+                    </button>
+
+                    <button onclick="switchTab('boosting')" id="tab-boosting" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80">
+                        <i class="fa-solid fa-rocket w-5 text-center"></i>
+                        <span>Boosting Panel</span>
+                    </button>
+
+                    <div class="border-t border-slate-700 my-3"></div>
+
+                    <button onclick="switchTab('my-orders')" id="tab-my-orders" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80">
+                        <i class="fa-solid fa-receipt w-5 text-center"></i>
+                        <span>My Orders</span>
+                    </button>
+
+                    <button onclick="switchTab('admin-panel')" id="tab-admin-panel" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition hover:bg-blue-600/80 text-amber-400">
+                        <i class="fa-solid fa-user-shield w-5 text-center"></i>
+                        <span>Admin Panel</span>
+                    </button>
+                </nav>
             </div>
 
-            <!-- Navigation Links -->
-            <nav class="p-4 space-y-1.5">
-                <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Main Menu</p>
+            <!-- FOOTER INFO -->
+            <div class="p-4 border-t border-slate-700 text-xs text-gray-400 text-center">
+                &copy; 2026 Wiz Gaming Services
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 overflow-y-auto p-8 bg-gray-50">
+            
+            <!-- 1. ANNOUNCEMENTS TAB -->
+            <section id="content-announcements" class="content-section">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Latest Announcements</h2>
+                <div class="space-y-4" id="announcement-list">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                        <div class="flex items-center space-x-2 text-blue-600 text-sm font-semibold mb-2">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>System Update</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-1">Welcome to Wiz Gaming Official Portal!</h3>
+                        <p class="text-gray-600 text-sm">Pwede na kayong mag-book ng car, mag-exchange ng credit to cash, at mag-request ng game boosting direct sa aming interactive platform.</p>
+                        <span class="text-xs text-gray-400 mt-3 block">October 9, 2026</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. BOOK A CAR TAB -->
+            <section id="content-book-car" class="content-section hidden">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Book a Car (Drop Off Service)</h2>
                 
-                <button onclick="switchTab('announcement')" id="nav-announcement" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
-                    <i data-lucide="megaphone" class="w-5 h-5 text-indigo-400"></i>
-                    <span>ANNOUNCEMENT</span>
-                </button>
-
-                <button onclick="switchTab('bookcar')" id="nav-bookcar" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 bg-indigo-600 text-white shadow-lg shadow-indigo-600/30">
-                    <i data-lucide="car" class="w-5 h-5 text-indigo-200"></i>
-                    <span>BOOK A CAR</span>
-                    <span class="ml-auto text-xs bg-indigo-500/40 text-indigo-100 px-1.5 py-0.5 rounded">Hot</span>
-                </button>
-
-                <button onclick="switchTab('credittocash')" id="nav-credittocash" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
-                    <i data-lucide="wallet" class="w-5 h-5 text-emerald-400"></i>
-                    <span>CREDIT TO CASH</span>
-                </button>
-
-                <button onclick="switchTab('boosting')" id="nav-boosting" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
-                    <i data-lucide="zap" class="w-5 h-5 text-amber-400"></i>
-                    <span>BOOSTING PANEL</span>
-                </button>
-
-                <div class="pt-4 mt-4 border-t border-gray-800/60">
-                    <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Management</p>
-                    
-                    <button onclick="switchTab('myorders')" id="nav-myorders" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
-                        <i data-lucide="shopping-bag" class="w-5 h-5 text-blue-400"></i>
-                        <span>MY ORDERS</span>
-                        <span id="myOrdersBadge" class="ml-auto bg-indigo-500/20 text-indigo-300 text-xs px-2 py-0.5 rounded-full font-bold">0</span>
-                    </button>
-
-                    <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
-                        <i data-lucide="shield-check" class="w-5 h-5 text-rose-400"></i>
-                        <span>ADMIN PANEL</span>
-                    </button>
-                </div>
-            </nav>
-        </div>
-
-        <!-- Sidebar Footer Status Card -->
-        <div class="p-4 border-t border-gray-800/60">
-            <div class="bg-gray-800/40 rounded-xl p-3 border border-gray-800 flex items-center space-x-3">
-                <div class="relative">
-                    <div class="w-3 h-3 bg-emerald-500 rounded-full animate-ping absolute top-0 left-0 opacity-75"></div>
-                    <div class="w-3 h-3 bg-emerald-500 rounded-full relative"></div>
-                </div>
-                <div>
-                    <p class="text-xs font-semibold text-gray-200">Drop-Off Express Active</p>
-                    <p class="text-[11px] text-gray-400">₱750 / person promo</p>
-                </div>
-            </div>
-        </div>
-    </aside>
-
-    <!-- Overlay for mobile drawer -->
-    <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-30 hidden md:hidden backdrop-blur-sm"></div>
-
-    <main class="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 space-y-6">
-
-        <!-- Notification Toast Box -->
-        <div id="toastBox" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
-            <div id="toastContent" class="flex items-center space-x-3 bg-indigo-600 text-white px-5 py-3.5 rounded-xl shadow-2xl border border-indigo-400/30">
-                <i data-lucide="check-circle-2" class="w-5 h-5 shrink-0"></i>
-                <span id="toastMsg" class="text-sm font-medium">Action completed successfully!</span>
-            </div>
-        </div>
-
-        <!-- SECTION 1: ANNOUNCEMENT TAB -->
-        <section id="tab-announcement" class="tab-content hidden space-y-6">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gray-900/80 p-6 rounded-2xl border border-gray-800">
-                <div>
-                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                        <i data-lucide="megaphone" class="text-indigo-400 w-6 h-6"></i> Announcements & Updates
-                    </h2>
-                    <p class="text-gray-400 text-sm mt-1">Mga mahalagang patalastas at advisory tungkol sa ating mga serbisyo.</p>
-                </div>
-                <span class="text-xs bg-indigo-950 text-indigo-300 border border-indigo-800/60 px-3 py-1.5 rounded-full self-start sm:self-auto font-medium">Updated Today</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gradient-to-br from-indigo-950/40 to-gray-900 border border-indigo-900/40 rounded-2xl p-6 space-y-3 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl"></div>
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">CAR RENTAL SPECIAL</span>
-                        <span class="text-xs text-gray-400">October 2026</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Mitsubishi Xpander (6 Seater) - Fixed Rate Promo!</h3>
-                    <p class="text-sm text-gray-300 leading-relaxed">
-                        Mura at kumportableng biyahe! Direct Drop Off service for only <strong class="text-emerald-400">₱750 per person</strong>. Air-conditioned, malinis, at subok sa mahabang biyahe. Pumili lang ng scheduled dates sa aming system para makapag-reserve agad.
-                    </p>
-                </div>
-
-                <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-3">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">SERVICE RULES</span>
-                        <span class="text-xs text-gray-400">Notice</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Paalaala sa mga Passengers (Drop Off)</h3>
-                    <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
-                        <li>Mag-arrive 15 minutes bago ang nakatakdang oras ng pick-up.</li>
-                        <li>Siguraduhing tama at active ang nilagay na Contact Number.</li>
-                        <li>Direct Drop Off location assistance sa inyong tinukoy na destinasyon.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2: BOOK A CAR TAB -->
-        <section id="tab-bookcar" class="tab-content space-y-6">
-            <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
-                        <i data-lucide="car" class="text-indigo-400 w-7 h-7"></i>
-                        Book A Car Service
-                    </h2>
-                    <p class="text-gray-400 text-sm mt-1">
-                        Pumili ng available trip date para sa ating <strong class="text-white">Mitsubishi Xpander Drop-Off Express</strong>.
-                    </p>
-                </div>
-                <div class="flex items-center space-x-2 bg-indigo-950/60 border border-indigo-800/50 px-4 py-2 rounded-xl">
-                    <i data-lucide="shield-check" class="w-5 h-5 text-indigo-400 shrink-0"></i>
-                    <span class="text-xs text-indigo-200">Guaranteed Reserved Slot</span>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                
-                <!-- Left Column: Car Preview & Details -->
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
-                        <div class="relative bg-gradient-to-b from-gray-800 to-gray-900 p-6 flex flex-col items-center justify-center text-center border-b border-gray-800">
-                            <!-- SVG Representation of Mitsubishi Xpander MPV -->
-                            <div class="w-full max-w-xs my-4 p-4 bg-gray-950/60 rounded-xl border border-gray-800 flex items-center justify-center">
-                                <svg class="w-48 h-28 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
-                                    <circle cx="7" cy="17" r="2"/>
-                                    <path d="M9 17h6"/>
-                                    <circle cx="17" cy="17" r="2"/>
-                                </svg>
-                            </div>
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-2">
-                                Available Unit
-                            </span>
-                            <h3 class="text-2xl font-extrabold text-white">Mitsubishi Xpander</h3>
-                            <p class="text-xs text-gray-400">7-Seater Modern MPV (6 Passengers Max)</p>
-
-                            <div class="mt-4 bg-indigo-950/50 border border-indigo-500/30 px-5 py-3 rounded-xl">
-                                <p class="text-xs text-indigo-300 uppercase font-bold tracking-wider">Fixed Fare Rate</p>
-                                <p class="text-3xl font-black text-emerald-400">₱750 <span class="text-sm font-normal text-gray-300">/ person</span></p>
-                            </div>
-                        </div>
-
-                        <!-- Vehicle Specs -->
-                        <div class="p-5 space-y-3 bg-gray-900/50">
-                            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Unit Features & Specifications</h4>
-                            <div class="grid grid-cols-2 gap-3 text-sm">
-                                <div class="bg-gray-800/50 p-2.5 rounded-lg border border-gray-800 flex items-center space-x-2">
-                                    <i data-lucide="users" class="w-4 h-4 text-indigo-400"></i>
-                                    <span class="text-gray-300">6 Passenger Slots</span>
-                                </div>
-                                <div class="bg-gray-800/50 p-2.5 rounded-lg border border-gray-800 flex items-center space-x-2">
-                                    <i data-lucide="navigation" class="w-4 h-4 text-indigo-400"></i>
-                                    <span class="text-gray-300">Drop Off Only</span>
-                                </div>
-                                <div class="bg-gray-800/50 p-2.5 rounded-lg border border-gray-800 flex items-center space-x-2">
-                                    <i data-lucide="wind" class="w-4 h-4 text-indigo-400"></i>
-                                    <span class="text-gray-300">Dual AC Cooling</span>
-                                </div>
-                                <div class="bg-gray-800/50 p-2.5 rounded-lg border border-gray-800 flex items-center space-x-2">
-                                    <i data-lucide="briefcase" class="w-4 h-4 text-indigo-400"></i>
-                                    <span class="text-gray-300">Luggage Space</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Interactive Booking Form -->
-                <div class="lg:col-span-7">
-                    <form id="carBookingForm" onsubmit="handleCarBooking(event)" class="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-6 shadow-xl">
-                        <div class="border-b border-gray-800 pb-4">
-                            <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                                <i data-lucide="clipboard-list" class="w-5 h-5 text-indigo-400"></i>
-                                Booking Details Form
-                            </h3>
-                            <p class="text-xs text-gray-400 mt-1">Punan ang mga detalye sa ibaba para ma-reserve ang inyong upuan.</p>
-                        </div>
-
-                        <!-- Fixed Rental Option Display -->
-                        <div class="space-y-2">
-                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Rental Option / Service Type</label>
-                            <div class="relative">
-                                <input type="text" value="Drop Off Service (Point to Point)" readonly class="w-full bg-gray-800/80 border border-gray-700 text-gray-200 px-4 py-3 rounded-xl font-semibold focus:outline-none cursor-not-allowed">
-                                <div class="absolute right-3 top-3">
-                                    <span class="bg-indigo-500/20 text-indigo-300 text-xs px-2.5 py-1 rounded-md font-bold border border-indigo-500/30">FIXED</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Configured Available Travel Dates Selection -->
-                        <div class="space-y-2">
-                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider flex items-center justify-between">
-                                <span>Select Trip Date (Available Slots)</span>
-                                <span class="text-indigo-400 text-[11px] font-normal">Admin Configured Dates</span>
-                            </label>
-                            <select id="travelDateSelect" required onchange="calculateCarTotal()" class="w-full bg-gray-950 border border-gray-700 text-white px-4 py-3 rounded-xl font-medium focus:outline-none focus:border-indigo-500 transition">
-                                <option value="" disabled selected>-- Select Available Trip Date --</option>
-                                <option value="2026-10-12">October 12, 2026 (Monday) - 4 Slots Left</option>
-                                <option value="2026-10-15">October 15, 2026 (Thursday) - 6 Slots Left</option>
-                                <option value="2026-10-18">October 18, 2026 (Sunday) - 2 Slots Left</option>
-                                <option value="2026-10-20">October 20, 2026 (Tuesday) - 6 Slots Left</option>
-                                <option value="2026-10-22">October 22, 2026 (Thursday) - 5 Slots Left</option>
-                            </select>
-                        </div>
-
-                        <!-- Pick-up & Drop-off Locations Grid -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="space-y-2">
-                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Pick-up Location</label>
-                                <div class="relative">
-                                    <i data-lucide="map-pin" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
-                                    <input type="text" id="pickupLocation" required placeholder="e.g. Cubao / Megamall / Pitx" class="w-full bg-gray-950 border border-gray-700 text-white pl-10 pr-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
-                                </div>
-                            </div>
-
-                            <div class="space-y-2">
-                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Drop-off Destination</label>
-                                <div class="relative">
-                                    <i data-lucide="navigation-2" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
-                                    <input type="text" id="dropoffLocation" required placeholder="e.g. Baguio City Center / Tagaytay" class="w-full bg-gray-950 border border-gray-700 text-white pl-10 pr-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Passenger Count & Contact Number Grid -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="space-y-2">
-                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Number of Passengers</label>
-                                <select id="passengerCount" required onchange="calculateCarTotal()" class="w-full bg-gray-950 border border-gray-700 text-white px-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
-                                    <option value="1">1 Person (₱750)</option>
-                                    <option value="2">2 Persons (₱1,500)</option>
-                                    <option value="3">3 Persons (₱2,250)</option>
-                                    <option value="4">4 Persons (₱3,000)</option>
-                                    <option value="5">5 Persons (₱3,750)</option>
-                                    <option value="6">6 Persons - Full Capacity (₱4,500)</option>
-                                </select>
-                            </div>
-
-                            <div class="space-y-2">
-                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Contact Number</label>
-                                <div class="relative">
-                                    <i data-lucide="phone" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
-                                    <input type="tel" id="contactNumber" required placeholder="09123456789" pattern="[0-9]{11}" class="w-full bg-gray-950 border border-gray-700 text-white pl-10 pr-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Full Name & Special Notes -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="space-y-2">
-                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Full Name</label>
-                                <input type="text" id="fullName" required placeholder="Juan Dela Cruz" class="w-full bg-gray-950 border border-gray-700 text-white px-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
-                            </div>
-
-                            <div class="space-y-2">
-                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Special Requests / Notes</label>
-                                <input type="text" id="specialNotes" placeholder="e.g. With 2 luggage bags" class="w-full bg-gray-950 border border-gray-700 text-white px-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
-                            </div>
-                        </div>
-
-                        <!-- Total Fare Summary Box -->
-                        <div class="bg-gray-950 p-4 rounded-xl border border-gray-800 flex items-center justify-between">
-                            <div>
-                                <p class="text-xs text-gray-400">Total Computed Fare:</p>
-                                <p class="text-2xl font-black text-emerald-400" id="computedTotalDisplay">₱750</p>
-                            </div>
-                            <span class="text-xs text-gray-500 italic">₱750 × <span id="passengerMultiplier">1</span> passenger(s)</span>
-                        </div>
-
-                        <!-- Submit Button -->
-                        <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-indigo-600/30 transition transform active:scale-[0.99] flex items-center justify-center space-x-2">
-                            <i data-lucide="check-circle" class="w-5 h-5"></i>
-                            <span>CONFIRM CAR BOOKING</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: CREDIT TO CASH TAB -->
-        <section id="tab-credittocash" class="tab-content hidden space-y-6">
-            <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800">
-                <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
-                    <i data-lucide="wallet" class="text-emerald-400 w-7 h-7"></i>
-                    Credit To Cash Conversion
-                </h2>
-                <p class="text-gray-400 text-sm mt-1">I-convert ang inyong e-wallet or credit balance sa instant cash.</p>
-            </div>
-
-            <div class="max-w-xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-5">
-                <form id="creditForm" onsubmit="handleCreditSubmit(event)" class="space-y-4">
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase">Provider / E-Wallet</label>
-                        <select id="creditProvider" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
-                            <option value="GCash">GCash Cash-In / Encashment</option>
-                            <option value="Maya">Maya Wallet</option>
-                            <option value="Credit Card">Credit Card Cashout</option>
-                        </select>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase">Amount to Cash Out (PHP)</label>
-                        <input type="number" id="creditAmount" min="500" placeholder="e.g. 2000" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
-                    </div>
-
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase">Receiver Account Details (GCash/Bank Number)</label>
-                        <input type="text" id="accountDetails" placeholder="09xxxxxxxxx or Bank Acct No." required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
-                    </div>
-
-                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition">
-                        SUBMIT CASH-OUT REQUEST
-                    </button>
-                </form>
-            </div>
-        </section>
-
-        <!-- SECTION 4: BOOSTING PANEL TAB -->
-        <section id="tab-boosting" class="tab-content hidden space-y-6">
-            <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800">
-                <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
-                    <i data-lucide="zap" class="text-amber-400 w-7 h-7"></i>
-                    Game Boosting Services
-                </h2>
-                <p class="text-gray-400 text-sm mt-1">Mabilis at ligtas na rank boosting para sa inyong paboritong laro.</p>
-            </div>
-
-            <div class="max-w-xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-5">
-                <form id="boostingForm" onsubmit="handleBoostingSubmit(event)" class="space-y-4">
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase">Select Game</label>
-                        <select id="boostGame" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-amber-500">
-                            <option value="Mobile Legends">Mobile Legends: Bang Bang</option>
-                            <option value="Valorant">Valorant</option>
-                            <option value="Wild Rift">League of Legends: Wild Rift</option>
-                        </select>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="space-y-2">
-                            <label class="block text-xs font-semibold text-gray-300 uppercase">Current Rank</label>
-                            <input type="text" id="currentRank" placeholder="e.g. Epic V" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="block text-xs font-semibold text-gray-300 uppercase">Target Rank</label>
-                            <input type="text" id="targetRank" placeholder="e.g. Mythic" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase">Game ID / Contact Handle</label>
-                        <input type="text" id="gameAccountId" placeholder="User ID / Discord Tag" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
-                    </div>
-
-                    <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-amber-600/20 transition">
-                        ORDER BOOSTING SERVICE
-                    </button>
-                </form>
-            </div>
-        </section>
-
-        <!-- SECTION 5: MY ORDERS / TRACK ORDER TAB -->
-        <section id="tab-myorders" class="tab-content hidden space-y-6">
-            <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div>
-                    <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
-                        <i data-lucide="shopping-bag" class="text-blue-400 w-7 h-7"></i>
-                        My Orders & Trips
-                    </h2>
-                    <p class="text-gray-400 text-sm mt-1">Subaybayan ang status ng inyong booking at mga requests.</p>
-                </div>
-                <button onclick="renderOrders()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-semibold rounded-xl border border-gray-700 flex items-center gap-2">
-                    <i data-lucide="refresh-cw" class="w-4 h-4"></i> Refresh Orders
-                </button>
-            </div>
-
-            <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-gray-950 text-gray-400 text-xs uppercase tracking-wider border-b border-gray-800">
-                                <th class="p-4">Order ID & Date</th>
-                                <th class="p-4">Service Details</th>
-                                <th class="p-4">Customer Details</th>
-                                <th class="p-4">Total Fare</th>
-                                <th class="p-4">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="myOrdersTableBody" class="divide-y divide-gray-800 text-sm text-gray-200">
-                            <!-- Populated dynamically -->
-                        </tbody>
-                    </table>
-                </div>
-                <div id="noOrdersMessage" class="p-8 text-center text-gray-500 text-sm hidden">
-                    Wala pang nakatalang booking o order sa ngayon.
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 6: ADMIN PANEL TAB -->
-        <section id="tab-admin" class="tab-content hidden space-y-6">
-            <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div>
-                    <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
-                        <i data-lucide="shield-check" class="text-rose-400 w-7 h-7"></i>
-                        Admin Management Panel
-                    </h2>
-                    <p class="text-gray-400 text-sm mt-1">Manage all bookings, update statuses, and monitor entries.</p>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">Admin Mode Active</span>
-                </div>
-            </div>
-
-            <!-- Admin Stats Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-gray-900 p-5 rounded-2xl border border-gray-800">
-                    <p class="text-xs text-gray-400 uppercase font-semibold">Total Orders</p>
-                    <p class="text-2xl font-bold text-white mt-1" id="statTotal">0</p>
-                </div>
-                <div class="bg-gray-900 p-5 rounded-2xl border border-gray-800">
-                    <p class="text-xs text-amber-400 uppercase font-semibold">Pending</p>
-                    <p class="text-2xl font-bold text-amber-400 mt-1" id="statPending">0</p>
-                </div>
-                <div class="bg-gray-900 p-5 rounded-2xl border border-gray-800">
-                    <p class="text-xs text-blue-400 uppercase font-semibold">Processing</p>
-                    <p class="text-2xl font-bold text-blue-400 mt-1" id="statProcessing">0</p>
-                </div>
-                <div class="bg-gray-900 p-5 rounded-2xl border border-gray-800">
-                    <p class="text-xs text-emerald-400 uppercase font-semibold">Completed</p>
-                    <p class="text-2xl font-bold text-emerald-400 mt-1" id="statCompleted">0</p>
-                </div>
-            </div>
-
-            <!-- Admin Orders Management Table -->
-            <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
-                <div class="p-4 border-b border-gray-800 flex justify-between items-center bg-gray-950/50">
-                    <h3 class="font-bold text-white text-sm">All System Booking Records</h3>
-                    <span class="text-xs text-gray-400">Change order status in real-time</span>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-gray-950 text-gray-400 text-xs uppercase tracking-wider border-b border-gray-800">
-                                <th class="p-4">ID & Service</th>
-                                <th class="p-4">Customer Info</th>
-                                <th class="p-4">Trip / Order Details</th>
-                                <th class="p-4">Total</th>
-                                <th class="p-4">Update Status</th>
-                                <th class="p-4">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="adminOrdersTableBody" class="divide-y divide-gray-800 text-sm text-gray-200">
-                            <!-- Populated dynamically -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <script>
-        // Store Application State in localStorage with initial sample seed if empty
-        const STORAGE_KEY = 'wiz_dashboard_orders_db_v1';
-
-        function getStoredOrders() {
-            const data = localStorage.getItem(STORAGE_KEY);
-            if (!data) {
-                // Initial Default Sample Booking
-                const defaultSample = [
-                    {
-                        id: 'WIZ-84920',
-                        date: '2026-10-09 14:30',
-                        type: 'Car Booking',
-                        vehicle: 'Mitsubishi Xpander (6 Seater)',
-                        serviceType: 'Drop Off Service',
-                        tripDate: '2026-10-15',
-                        pickup: 'Cubao Farmers Plaza',
-                        dropoff: 'Baguio City Terminal',
-                        passengers: 2,
-                        customerName: 'Juan Dela Cruz',
-                        contact: '09171234567',
-                        total: 1500,
-                        status: 'Pending',
-                        notes: 'With 2 luggage bags'
-                    }
-                ];
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultSample));
-                return defaultSample;
-            }
-            return JSON.parse(data);
-        }
-
-        function saveOrders(orders) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
-            renderOrders();
-            renderAdminPanel();
-            updateOrdersBadge();
-        }
-
-        // Tab Switching Logic
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-600/30');
-                btn.classList.add('text-gray-400', 'hover:text-white', 'hover:bg-gray-800/60');
-            });
-
-            const targetTab = document.getElementById(`tab-${tabId}`);
-            if (targetTab) {
-                targetTab.classList.remove('hidden');
-            }
-
-            const activeBtn = document.getElementById(`nav-${tabId}`);
-            if (activeBtn) {
-                activeBtn.classList.remove('text-gray-400', 'hover:text-white', 'hover:bg-gray-800/60');
-                activeBtn.classList.add('bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-600/30');
-            }
-
-            // Mobile menu auto collapse
-            closeMobileMenu();
-        }
-
-        // Calculation logic for Book a Car (₱750 per person)
-        function calculateCarTotal() {
-            const passengerCount = parseInt(document.getElementById('passengerCount').value) || 1;
-            const ratePerPerson = 750;
-            const total = passengerCount * ratePerPerson;
-
-            document.getElementById('computedTotalDisplay').innerText = `₱${total.toLocaleString()}`;
-            document.getElementById('passengerMultiplier').innerText = passengerCount;
-        }
-
-        // Handle Car Booking Submission
-        function handleCarBooking(event) {
-            event.preventDefault();
-
-            const travelDate = document.getElementById('travelDateSelect').value;
-            const pickup = document.getElementById('pickupLocation').value.trim();
-            const dropoff = document.getElementById('dropoffLocation').value.trim();
-            const passengers = parseInt(document.getElementById('passengerCount').value);
-            const contact = document.getElementById('contactNumber').value.trim();
-            const fullName = document.getElementById('fullName').value.trim();
-            const notes = document.getElementById('specialNotes').value.trim();
-
-            if (!travelDate) {
-                showToast('Pumili ng available trip date!');
-                return;
-            }
-
-            const totalFare = passengers * 750;
-            const newOrder = {
-                id: 'WIZ-' + Math.floor(10000 + Math.random() * 90000),
-                date: new Date().toLocaleString('en-CA', { hour12: false }).replace(',', ''),
-                type: 'Car Booking',
-                vehicle: 'Mitsubishi Xpander (6 Seater)',
-                serviceType: 'Drop Off Service',
-                tripDate: travelDate,
-                pickup: pickup,
-                dropoff: dropoff,
-                passengers: passengers,
-                customerName: fullName,
-                contact: contact,
-                total: totalFare,
-                status: 'Pending',
-                notes: notes || 'N/A'
-            };
-
-            const orders = getStoredOrders();
-            orders.unshift(newOrder);
-            saveOrders(orders);
-
-            // Reset Form & Switch to Orders
-            document.getElementById('carBookingForm').reset();
-            calculateCarTotal();
-            showToast('Booking successfully submitted!');
-            switchTab('myorders');
-        }
-
-        // Handle Credit to Cash Submission
-        function handleCreditSubmit(e) {
-            e.preventDefault();
-            const provider = document.getElementById('creditProvider').value;
-            const amount = parseFloat(document.getElementById('creditAmount').value);
-            const acct = document.getElementById('accountDetails').value.trim();
-
-            const newOrder = {
-                id: 'CASH-' + Math.floor(10000 + Math.random() * 90000),
-                date: new Date().toLocaleString('en-CA', { hour12: false }).replace(',', ''),
-                type: 'Credit to Cash',
-                vehicle: 'N/A',
-                serviceType: provider,
-                tripDate: 'N/A',
-                pickup: 'N/A',
-                dropoff: 'N/A',
-                passengers: 0,
-                customerName: 'Customer (' + acct + ')',
-                contact: acct,
-                total: amount,
-                status: 'Pending',
-                notes: `Encashment request via ${provider}`
-            };
-
-            const orders = getStoredOrders();
-            orders.unshift(newOrder);
-            saveOrders(orders);
-            document.getElementById('creditForm').reset();
-            showToast('Credit to Cash request submitted!');
-            switchTab('myorders');
-        }
-
-        // Handle Game Boosting Submission
-        function handleBoostingSubmit(e) {
-            e.preventDefault();
-            const game = document.getElementById('boostGame').value;
-            const currentR = document.getElementById('currentRank').value;
-            const targetR = document.getElementById('targetRank').value;
-            const handle = document.getElementById('gameAccountId').value;
-
-            const newOrder = {
-                id: 'BOOST-' + Math.floor(10000 + Math.random() * 90000),
-                date: new Date().toLocaleString('en-CA', { hour12: false }).replace(',', ''),
-                type: 'Game Boosting',
-                vehicle: 'N/A',
-                serviceType: game,
-                tripDate: 'N/A',
-                pickup: 'N/A',
-                dropoff: 'N/A',
-                passengers: 0,
-                customerName: handle,
-                contact: handle,
-                total: 500, // standard base fee estimate
-                status: 'Pending',
-                notes: `Rank: ${currentR} -> ${targetR}`
-            };
-
-            const orders = getStoredOrders();
-            orders.unshift(newOrder);
-            saveOrders(orders);
-            document.getElementById('boostingForm').reset();
-            showToast('Boosting order placed successfully!');
-            switchTab('myorders');
-        }
-
-        // Render "MY ORDERS" Table
-        function renderOrders() {
-            const orders = getStoredOrders();
-            const tbody = document.getElementById('myOrdersTableBody');
-            const noOrders = document.getElementById('noOrdersMessage');
-
-            tbody.innerHTML = '';
-
-            if (orders.length === 0) {
-                noOrders.classList.remove('hidden');
-                return;
-            } else {
-                noOrders.classList.add('hidden');
-            }
-
-            orders.forEach(order => {
-                const tr = document.createElement('tr');
-                tr.className = 'hover:bg-gray-800/40 transition';
-
-                let detailsHTML = '';
-                if (order.type === 'Car Booking') {
-                    detailsHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- CAR INFOCARD -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col justify-between">
                         <div>
-                            <span class="font-bold text-indigo-300">${order.vehicle}</span>
-                            <p class="text-xs text-gray-400">Trip Date: <strong class="text-gray-200">${order.tripDate}</strong></p>
-                            <p class="text-xs text-gray-400">Pick-up: ${order.pickup}</p>
-                            <p class="text-xs text-gray-400">Drop-off: ${order.dropoff}</p>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Featured Vehicle</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2">Mitsubishi Xpander</h3>
+                            <p class="text-sm text-gray-500 mb-4"><i class="fa-solid fa-users mr-1"></i> 6 Seater Capacity</p>
+                            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500&auto=format&fit=crop&q=60" alt="Mitsubishi Xpander" class="rounded-lg mb-4 h-40 w-full object-cover">
+                            
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <div class="flex justify-between">
+                                    <span>Rate:</span>
+                                    <span class="font-bold text-gray-800">₱750 / person</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Option:</span>
+                                    <span class="font-bold text-blue-600">Drop Off Only</span>
+                                </div>
+                            </div>
                         </div>
-                    `;
-                } else {
-                    detailsHTML = `<div><span class="font-bold text-gray-200">${order.serviceType}</span><p class="text-xs text-gray-400">${order.notes}</p></div>`;
-                }
+                    </div>
 
-                tr.innerHTML = `
-                    <td class="p-4">
-                        <span class="font-mono text-xs font-bold bg-gray-800 text-indigo-400 px-2 py-1 rounded border border-gray-700">${order.id}</span>
-                        <p class="text-xs text-gray-400 mt-1">${order.date}</p>
-                    </td>
-                    <td class="p-4">${detailsHTML}</td>
-                    <td class="p-4">
-                        <p class="font-semibold text-white">${order.customerName}</p>
-                        <p class="text-xs text-gray-400">${order.contact}</p>
-                        ${order.passengers ? `<p class="text-xs text-indigo-300 font-medium">${order.passengers} Passenger(s)</p>` : ''}
-                    </td>
-                    <td class="p-4 font-bold text-emerald-400">₱${order.total.toLocaleString()}</td>
-                    <td class="p-4">${getStatusBadge(order.status)}</td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        // Render "ADMIN PANEL" Table
-        function renderAdminPanel() {
-            const orders = getStoredOrders();
-            const tbody = document.getElementById('adminOrdersTableBody');
-            tbody.innerHTML = '';
-
-            // Update stats
-            let pending = 0, processing = 0, completed = 0;
-
-            orders.forEach(order => {
-                if (order.status === 'Pending') pending++;
-                if (order.status === 'Processing') processing++;
-                if (order.status === 'Completed') completed++;
-
-                const tr = document.createElement('tr');
-                tr.className = 'hover:bg-gray-800/40 transition';
-
-                tr.innerHTML = `
-                    <td class="p-4">
-                        <span class="font-mono text-xs font-bold text-indigo-300">${order.id}</span>
-                        <p class="text-xs text-gray-400">${order.type}</p>
-                    </td>
-                    <td class="p-4">
-                        <p class="font-bold text-white">${order.customerName}</p>
-                        <p class="text-xs text-gray-400">${order.contact}</p>
-                    </td>
-                    <td class="p-4 text-xs">
-                        <p><strong class="text-gray-300">Date:</strong> ${order.tripDate || 'N/A'}</p>
-                        <p><strong class="text-gray-300">Route:</strong> ${order.pickup || 'N/A'} -> ${order.dropoff || 'N/A'}</p>
-                        ${order.passengers ? `<p><strong class="text-gray-300">Pax:</strong> ${order.passengers}</p>` : ''}
-                    </td>
-                    <td class="p-4 font-bold text-emerald-400">₱${order.total.toLocaleString()}</td>
-                    <td class="p-4">
-                        <select onchange="updateOrderStatus('${order.id}', this.value)" class="bg-gray-950 border border-gray-700 text-xs text-white p-2 rounded-lg focus:outline-none focus:border-indigo-500">
-                            <option value="Pending" ${order.status === 'Pending' ? 'selected' : ''}>Pending</option>
-                            <option value="Processing" ${order.status === 'Processing' ? 'selected' : ''}>Processing</option>
-                            <option value="Completed" ${order.status === 'Completed' ? 'selected' : ''}>Completed</option>
-                            <option value="Cancelled" ${order.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
-                        </select>
-                    </td>
-                    <td class="p-4">
-                        <button onclick="deleteOrder('${order.id}')" class="p-2 text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 rounded-lg transition" title="Delete Order">
-                            <i data-lucide="trash-2" class="w-4 h-4"></i>
-                        </button>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-
-            document.getElementById('statTotal').innerText = orders.length;
-            document.getElementById('statPending').innerText = pending;
-            document.getElementById('statProcessing').innerText = processing;
-            document.getElementById('statCompleted').innerText = completed;
-
-            // Re-initialize Lucide Icons for dynamic elements
-            lucide.createIcons();
-        }
-
-        // Change Order Status in Admin
-        function updateOrderStatus(orderId, newStatus) {
-            const orders = getStoredOrders();
-            const index = orders.findIndex(o => o.id === orderId);
-            if (index !== -1) {
-                orders[index].status = newStatus;
-                saveOrders(orders);
-                showToast(`Order ${orderId} updated to ${newStatus}`);
-            }
-        }
-
-        // Delete Order in Admin
-        function deleteOrder(orderId) {
-            if (confirm(`Are you sure you want to remove order ${orderId}?`)) {
-                let orders = getStoredOrders();
-                orders = orders.filter(o => o.id !== orderId);
-                saveOrders(orders);
-                showToast(`Order ${orderId} removed`);
-            }
-        }
-
-        // Utility: Status Badge styling
-        function getStatusBadge(status) {
-            switch(status) {
-                case 'Pending':
-                    return `<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">Pending</span>`;
-                case 'Processing':
-                    return `<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">Processing</span>`;
-                case 'Completed':
-                    return `<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Completed</span>`;
-                case 'Cancelled':
-                    return `<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20">Cancelled</span>`;
-                default:
-                    return `<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-gray-500/10 text-gray-400">${status}</span>`;
-            }
-        }
-
-        function updateOrdersBadge() {
-            const orders = getStoredOrders();
-            document.getElementById('myOrdersBadge').innerText = orders.length;
-        }
-
-        // Toast Helper
-        function showToast(message) {
-            const toast = document.getElementById('toastBox');
-            document.getElementById('toastMsg').innerText = message;
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
-        }
-
-        // Mobile drawer handlers
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const sidebar = document.getElementById('sidebar');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-
-        function openMobileMenu() {
-            sidebar.classList.remove('-translate-x-full');
-            mobileOverlay.classList.remove('hidden');
-        }
-
-        function closeMobileMenu() {
-            sidebar.classList.add('-translate-x-full');
-            mobileOverlay.classList.add('hidden');
-        }
-
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                if (sidebar.classList.contains('-translate-x-full')) {
-                    openMobileMenu();
-                } else {
-                    closeMobileMenu();
-                }
-            });
-        }
-
-        if (mobileOverlay) {
-            mobileOverlay.addEventListener('click', closeMobileMenu);
-        }
-
-        // Initialize icons and render tables on window load
-        window.onload = function() {
-            lucide.createIcons();
-            calculateCarTotal();
-            renderOrders();
-            renderAdminPanel();
-            updateOrdersBadge();
-        };
-    </script>
-</body>
-</html>
+                    <!-- BOOKING FORM -->
+                    <div class="md:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                        <form id="car-booking-form" onsubmit="submitCarBooking(event)" class="space-y-4">
