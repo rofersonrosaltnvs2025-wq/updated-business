@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiz Gaming & Services - Dashboard</title>
+    <title>ROFS Services - Dashboard</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons CDN -->
@@ -38,7 +38,7 @@
                 W
             </div>
             <div>
-                <h1 class="font-bold text-lg leading-tight text-white">WIZ SERVICES</h1>
+                <h1 class="font-bold text-lg leading-tight text-white">ROFS SERVICES</h1>
                 <p class="text-xs text-indigo-400 font-medium">All-in-One Portal</p>
             </div>
         </div>
@@ -55,7 +55,7 @@
                     W
                 </div>
                 <div>
-                    <h1 class="font-bold text-lg text-white tracking-wide">WIZ SERVICES</h1>
+                    <h1 class="font-bold text-lg text-white tracking-wide">ROFS SERVICES</h1>
                     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
                         Official Portal
                     </span>
@@ -539,7 +539,7 @@
 
     <script>
         // Store Application State in localStorage with initial sample seed if empty
-        const STORAGE_KEY = 'wiz_dashboard_orders_db_v1';
+        const STORAGE_KEY = 'ROFS_dashboard_orders_db_v1';
 
         function getStoredOrders() {
             const data = localStorage.getItem(STORAGE_KEY);
@@ -547,7 +547,7 @@
                 // Initial Default Sample Booking
                 const defaultSample = [
                     {
-                        id: 'WIZ-84920',
+                        id: 'ROFS-84920',
                         date: '2026-10-09 14:30',
                         type: 'Car Booking',
                         vehicle: 'Mitsubishi Xpander (6 Seater)',
@@ -628,7 +628,7 @@
 
             const totalFare = passengers * 750;
             const newOrder = {
-                id: 'WIZ-' + Math.floor(10000 + Math.random() * 90000),
+                id: 'ROFS-' + Math.floor(10000 + Math.random() * 90000),
                 date: new Date().toLocaleString('en-CA', { hour12: false }).replace(',', ''),
                 type: 'Car Booking',
                 vehicle: 'Mitsubishi Xpander (6 Seater)',
