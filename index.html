@@ -9,7 +9,7 @@
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -32,10 +32,11 @@
 </head>
 <body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col md:flex-row antialiased">
 
+    <!-- Mobile Navigation Header -->
     <div class="md:hidden flex items-center justify-between bg-gray-900 border-b border-gray-800 p-4 sticky top-0 z-50">
         <div class="flex items-center space-x-3">
             <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-indigo-500/30">
-                W
+                R
             </div>
             <div>
                 <h1 class="font-bold text-lg leading-tight text-white">ROFS SERVICES</h1>
@@ -47,6 +48,7 @@
         </button>
     </div>
 
+    <!-- Sidebar Navigation -->
     <aside id="sidebar" class="fixed md:static inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition-transform duration-200 ease-in-out z-40 w-64 bg-gray-900 border-r border-gray-800/80 flex flex-col justify-between shrink-0 h-screen md:h-auto">
         <div>
             <!-- Desktop Brand Header -->
@@ -71,13 +73,13 @@
                     <span>ANNOUNCEMENT</span>
                 </button>
 
-                <button onclick="switchTab('bookcar')" id="nav-bookcar" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 bg-indigo-600 text-white shadow-lg shadow-indigo-600/30">
+                <button onclick="switchTab('bookcar')" id="nav-bookcar" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
                     <i data-lucide="car" class="w-5 h-5 text-indigo-200"></i>
                     <span>BOOK A CAR</span>
                     <span class="ml-auto text-xs bg-indigo-500/40 text-indigo-100 px-1.5 py-0.5 rounded">Hot</span>
                 </button>
 
-                <button onclick="switchTab('credittocash')" id="nav-credittocash" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-gray-400 hover:text-white hover:bg-gray-800/60">
+                <button onclick="switchTab('credittocash')" id="nav-credittocash" class="nav-btn w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 bg-indigo-600 text-white shadow-lg shadow-indigo-600/30">
                     <i data-lucide="wallet" class="w-5 h-5 text-emerald-400"></i>
                     <span>CREDIT TO CASH</span>
                 </button>
@@ -112,8 +114,8 @@
                     <div class="w-3 h-3 bg-emerald-500 rounded-full relative"></div>
                 </div>
                 <div>
-                    <p class="text-xs font-semibold text-gray-200">Drop-Off Express Active</p>
-                    <p class="text-[11px] text-gray-400">₱750 / person promo</p>
+                    <p class="text-xs font-semibold text-gray-200">System Live & Operational</p>
+                    <p class="text-[11px] text-gray-400">Instant Cashout Processing</p>
                 </div>
             </div>
         </div>
@@ -139,7 +141,7 @@
                     <h2 class="text-2xl font-bold text-white flex items-center gap-2">
                         <i data-lucide="megaphone" class="text-indigo-400 w-6 h-6"></i> Announcements & Updates
                     </h2>
-                    <p class="text-gray-400 text-sm mt-1">Mga mahalagang patalastas at advisory tungkol sa ating mga serbisyo.</p>
+                    <p class="text-gray-400 text-sm mt-1">Important advisories and updates regarding our services.</p>
                 </div>
                 <span class="text-xs bg-indigo-950 text-indigo-300 border border-indigo-800/60 px-3 py-1.5 rounded-full self-start sm:self-auto font-medium">Updated Today</span>
             </div>
@@ -153,27 +155,25 @@
                     </div>
                     <h3 class="text-lg font-bold text-white">Mitsubishi Xpander (6 Seater) - Fixed Rate Promo!</h3>
                     <p class="text-sm text-gray-300 leading-relaxed">
-                        Mura at kumportableng biyahe! Direct Drop Off service for only <strong class="text-emerald-400">₱750 per person</strong>. Air-conditioned, malinis, at subok sa mahabang biyahe. Pumili lang ng scheduled dates sa aming system para makapag-reserve agad.
+                        Affordable and comfortable ride! Direct Drop Off service for only <strong class="text-emerald-400">₱750 per person</strong>. Air-conditioned, clean, and proven for long journeys. Simply select scheduled dates on our system to reserve your slot.
                     </p>
                 </div>
 
                 <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-3">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">SERVICE RULES</span>
-                        <span class="text-xs text-gray-400">Notice</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">CREDIT TO CASH</span>
+                        <span class="text-xs text-gray-400">Fast Disbursement</span>
                     </div>
-                    <h3 class="text-lg font-bold text-white">Paalaala sa mga Passengers (Drop Off)</h3>
-                    <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
-                        <li>Mag-arrive 15 minutes bago ang nakatakdang oras ng pick-up.</li>
-                        <li>Siguraduhing tama at active ang nilagay na Contact Number.</li>
-                        <li>Direct Drop Off location assistance sa inyong tinukoy na destinasyon.</li>
-                    </ul>
+                    <h3 class="text-lg font-bold text-white">Instant Credit Cashout Rules</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Convert your credits into cash! Rates: <strong class="text-emerald-400">₱200 fixed fee</strong> for amounts below ₱2,000 and <strong class="text-emerald-400">10% fee</strong> for ₱2,000 and above. Direct payout via GCash, Maya, GoTyme, MariBank, or Wise PH!
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- SECTION 2: BOOK A CAR TAB -->
-        <section id="tab-bookcar" class="tab-content space-y-6">
+        <section id="tab-bookcar" class="tab-content hidden space-y-6">
             <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
@@ -181,7 +181,7 @@
                         Book A Car Service
                     </h2>
                     <p class="text-gray-400 text-sm mt-1">
-                        Pumili ng available trip date para sa ating <strong class="text-white">Mitsubishi Xpander Drop-Off Express</strong>.
+                        Select an available trip date for our <strong class="text-white">Mitsubishi Xpander Drop-Off Express</strong>.
                     </p>
                 </div>
                 <div class="flex items-center space-x-2 bg-indigo-950/60 border border-indigo-800/50 px-4 py-2 rounded-xl">
@@ -196,7 +196,6 @@
                 <div class="lg:col-span-5 space-y-6">
                     <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
                         <div class="relative bg-gradient-to-b from-gray-800 to-gray-900 p-6 flex flex-col items-center justify-center text-center border-b border-gray-800">
-                            <!-- SVG Representation of Mitsubishi Xpander MPV -->
                             <div class="w-full max-w-xs my-4 p-4 bg-gray-950/60 rounded-xl border border-gray-800 flex items-center justify-center">
                                 <svg class="w-48 h-28 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
@@ -250,21 +249,21 @@
                                 <i data-lucide="clipboard-list" class="w-5 h-5 text-indigo-400"></i>
                                 Booking Details Form
                             </h3>
-                            <p class="text-xs text-gray-400 mt-1">Punan ang mga detalye sa ibaba para ma-reserve ang inyong upuan.</p>
+                            <p class="text-xs text-gray-400 mt-1">Fill out the details below to reserve your seats.</p>
                         </div>
 
                         <!-- Fixed Rental Option Display -->
                         <div class="space-y-2">
                             <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Service Type</label>
                             <div class="relative">
-                                <input type="text" value="DOOR TO DOOR SERVICE" readonly class="w-full bg-gray-800/80 border border-gray-700 text-gray-200 px-4 py-3 rounded-xl font-semibold focus:outline-none cursor-not-allowed">
+                                <input type="text" value="DROP OFF SERVICE" readonly class="w-full bg-gray-800/80 border border-gray-700 text-gray-200 px-4 py-3 rounded-xl font-semibold focus:outline-none cursor-not-allowed">
                                 <div class="absolute right-3 top-3">
                                     <span class="bg-indigo-500/20 text-indigo-300 text-xs px-2.5 py-1 rounded-md font-bold border border-indigo-500/30">FIXED</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Configured Available Travel Dates Selection -->
+                        <!-- Available Travel Dates Selection -->
                         <div class="space-y-2">
                             <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider flex items-center justify-between">
                                 <span>Select Trip Date (Available Slots)</span>
@@ -286,7 +285,7 @@
                                 <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Pick-up Location</label>
                                 <div class="relative">
                                     <i data-lucide="map-pin" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
-                                    <input type="text" id="pickupLocation" required placeholder="e.g. Cubao / Megamall / Pitx" class="w-full bg-gray-950 border border-gray-700 text-white pl-10 pr-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
+                                    <input type="text" id="pickupLocation" required placeholder="e.g. Cubao / Megamall / PITX" class="w-full bg-gray-950 border border-gray-700 text-white pl-10 pr-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
                                 </div>
                             </div>
 
@@ -294,7 +293,7 @@
                                 <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Drop-off Destination</label>
                                 <div class="relative">
                                     <i data-lucide="navigation-2" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
-                                    <input type="text" id="dropoffLocation" required placeholder="e.g. Baguio City Center / Tagaytay" class="w-full bg-gray-950 border border-gray-700 text-white pl-10 pr-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
+                                    <input type="text" id="dropoffLocation" required placeholder="e.g. Baguio City Center / Clark" class="w-full bg-gray-950 border border-gray-700 text-white pl-10 pr-4 py-3 rounded-xl text-sm focus:outline-none focus:border-indigo-500 transition">
                                 </div>
                             </div>
                         </div>
@@ -355,38 +354,83 @@
         </section>
 
         <!-- SECTION 3: CREDIT TO CASH TAB -->
-        <section id="tab-credittocash" class="tab-content hidden space-y-6">
+        <section id="tab-credittocash" class="tab-content space-y-6">
             <div class="bg-gray-900/90 p-6 rounded-2xl border border-gray-800">
                 <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
                     <i data-lucide="wallet" class="text-emerald-400 w-7 h-7"></i>
-                    Credit To Cash Conversion
+                    Credit To Cash Encashment
                 </h2>
-                <p class="text-gray-400 text-sm mt-1">I-convert ang inyong e-wallet or credit balance sa instant cash.</p>
+                <p class="text-gray-400 text-sm mt-1">Convert your available credit balance into instant cash remittance.</p>
             </div>
 
-            <div class="max-w-xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-5">
-                <form id="creditForm" onsubmit="handleCreditSubmit(event)" class="space-y-4">
+            <div class="max-w-2xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+                <form id="creditForm" onsubmit="handleCreditSubmit(event)" class="space-y-5">
+                    
+                    <!-- Fixed Provider Display -->
                     <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase">Provider / E-Wallet</label>
-                        <select id="creditProvider" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
-                            <option value="GCash">GCash Cash-In / Encashment</option>
-                            <option value="Maya">Maya Wallet</option>
-                            <option value="Credit Card">Credit Card Cashout</option>
-                        </select>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">CASHOUT SERVICE</label>
+                        <div class="relative">
+                            <input type="text" value="CREDIT CASHOUT" readonly class="w-full bg-gray-800/80 border border-gray-700 text-emerald-400 font-bold p-3.5 rounded-xl text-sm focus:outline-none cursor-not-allowed">
+                            <span class="absolute right-3.5 top-3.5 bg-emerald-500/20 text-emerald-300 text-xs px-2.5 py-0.5 rounded-md font-bold border border-emerald-500/30">
+                                ACTIVE
+                            </span>
+                        </div>
                     </div>
 
+                    <!-- Cashout Amount & Rate Info -->
                     <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase">Amount to Cash Out (PHP)</label>
-                        <input type="number" id="creditAmount" min="500" placeholder="e.g. 2000" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Cash Out Amount(PHP)</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-3.5 font-bold text-gray-400">₱</span>
+                            <input type="number" id="creditAmount" min="100" placeholder="e.g. 1500 or 5000" oninput="calculateCreditCashout()" required class="w-full bg-gray-950 border border-gray-700 text-white pl-8 pr-4 py-3.5 rounded-xl text-base font-bold focus:outline-none focus:border-emerald-500 transition">
+                        </div>
+                        <div class="bg-gray-950/60 p-3 rounded-lg border border-gray-800 text-xs text-gray-400 space-y-1">
+                            <p class="flex items-center gap-1"><i data-lucide="info" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i> <strong class="text-gray-300">Below ₱2,000:</strong> Fixed Service Charge of ₱200</p>
+                            <p class="flex items-center gap-1"><i data-lucide="info" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i> <strong class="text-gray-300">₱2,000 and Above:</strong> 10% Service Charge Fee</p>
+                        </div>
                     </div>
 
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase">Receiver Account Details (GCash/Bank Number)</label>
-                        <input type="text" id="accountDetails" placeholder="09xxxxxxxxx or Bank Acct No." required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+                    <!-- Dynamic You Will Receive Display Box -->
+                    <div class="bg-gradient-to-r from-emerald-950/60 to-gray-950 p-5 rounded-2xl border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs uppercase font-extrabold text-emerald-400 tracking-wider">YOU WILL RECEIVE (NET CASH):</span>
+                            <h3 class="text-3xl font-black text-white mt-0.5" id="netReceiveDisplay">₱0.00</h3>
+                        </div>
+                        <div class="text-left sm:text-right text-xs text-gray-400 border-t sm:border-t-0 border-gray-800 pt-2 sm:pt-0 w-full sm:w-auto">
+                            <p>Deducted Fee: <strong id="feeDisplay" class="text-rose-400 font-bold">₱0.00</strong></p>
+                        </div>
                     </div>
 
-                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition">
-                        SUBMIT CASH-OUT REQUEST
+                    <!-- Target Bank / E-Wallet Selection -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Select Payout Option</label>
+                            <select id="payoutBank" required class="w-full bg-gray-950 border border-gray-700 text-white p-3.5 rounded-xl text-sm font-semibold focus:outline-none focus:border-emerald-500 transition">
+                                <option value="" disabled selected>-- Select Bank / E-Wallet --</option>
+                                <option value="GCASH">GCASH</option>
+                                <option value="MAYA">MAYA</option>
+                                <option value="GOTYME">GOTYME</option>
+                                <option value="MARIBANK">MARIBANK</option>
+                                <option value="WISE PH">WISE PH</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Account Number / Mobile No.</label>
+                            <input type="text" id="payoutAccNum" placeholder="09xxxxxxxxx or Acct No." required class="w-full bg-gray-950 border border-gray-700 text-white p-3.5 rounded-xl text-sm focus:outline-none focus:border-emerald-500 transition">
+                        </div>
+                    </div>
+
+                    <!-- Account Name -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Account Holder Full Name</label>
+                        <input type="text" id="payoutAccName" placeholder="Juan Dela Cruz" required class="w-full bg-gray-950 border border-gray-700 text-white p-3.5 rounded-xl text-sm focus:outline-none focus:border-emerald-500 transition">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold py-4 px-6 rounded-xl shadow-lg shadow-emerald-600/25 transition transform active:scale-[0.99] flex items-center justify-center space-x-2 text-base">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                        <span>SUBMIT CASHOUT REQUEST</span>
                     </button>
                 </form>
             </div>
@@ -399,7 +443,7 @@
                     <i data-lucide="zap" class="text-amber-400 w-7 h-7"></i>
                     Game Boosting Services
                 </h2>
-                <p class="text-gray-400 text-sm mt-1">Mabilis at ligtas na rank boosting para sa inyong paboritong laro.</p>
+                <p class="text-gray-400 text-sm mt-1">Fast and safe rank boosting for your favorite games.</p>
             </div>
 
             <div class="max-w-xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-5">
@@ -407,26 +451,27 @@
                     <div class="space-y-2">
                         <label class="block text-xs font-semibold text-gray-300 uppercase">Select Game</label>
                         <select id="boostGame" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm focus:outline-none focus:border-amber-500">
+                            <option value="MIR4">MIR4</option>
+                            <option value="Legend of Ymir">Legend of Ymir</option>
                             <option value="Mobile Legends">Mobile Legends: Bang Bang</option>
                             <option value="Valorant">Valorant</option>
-                            <option value="Wild Rift">League of Legends: Wild Rift</option>
                         </select>
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-2">
-                            <label class="block text-xs font-semibold text-gray-300 uppercase">Current Rank</label>
-                            <input type="text" id="currentRank" placeholder="e.g. Epic V" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
+                            <label class="block text-xs font-semibold text-gray-300 uppercase">Current Rank / Level</label>
+                            <input type="text" id="currentRank" placeholder="e.g. Epic V / Lvl 60" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
                         </div>
                         <div class="space-y-2">
-                            <label class="block text-xs font-semibold text-gray-300 uppercase">Target Rank</label>
-                            <input type="text" id="targetRank" placeholder="e.g. Mythic" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
+                            <label class="block text-xs font-semibold text-gray-300 uppercase">Target Rank / Goal</label>
+                            <input type="text" id="targetRank" placeholder="e.g. Mythic / Lvl 80" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
                         </div>
                     </div>
 
                     <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase">Game ID / Contact Handle</label>
-                        <input type="text" id="gameAccountId" placeholder="User ID / Discord Tag" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
+                        <label class="block text-xs font-semibold text-gray-300 uppercase">In-Game IGN / ID</label>
+                        <input type="text" id="gameAccountId" placeholder="User IGN / Server ID" required class="w-full bg-gray-950 border border-gray-700 text-white p-3 rounded-xl text-sm">
                     </div>
 
                     <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-amber-600/20 transition">
@@ -444,7 +489,7 @@
                         <i data-lucide="shopping-bag" class="text-blue-400 w-7 h-7"></i>
                         My Orders & Trips
                     </h2>
-                    <p class="text-gray-400 text-sm mt-1">Subaybayan ang status ng inyong booking at mga requests.</p>
+                    <p class="text-gray-400 text-sm mt-1">Track the status of your bookings and requests.</p>
                 </div>
                 <button onclick="renderOrders()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-semibold rounded-xl border border-gray-700 flex items-center gap-2">
                     <i data-lucide="refresh-cw" class="w-4 h-4"></i> Refresh Orders
@@ -459,7 +504,7 @@
                                 <th class="p-4">Order ID & Date</th>
                                 <th class="p-4">Service Details</th>
                                 <th class="p-4">Customer Details</th>
-                                <th class="p-4">Total Fare</th>
+                                <th class="p-4">Amount</th>
                                 <th class="p-4">Status</th>
                             </tr>
                         </thead>
@@ -469,7 +514,7 @@
                     </table>
                 </div>
                 <div id="noOrdersMessage" class="p-8 text-center text-gray-500 text-sm hidden">
-                    Wala pang nakatalang booking o order sa ngayon.
+                    No active bookings or orders found.
                 </div>
             </div>
         </section>
@@ -538,13 +583,11 @@
     </main>
 
     <script>
-        // Store Application State in localStorage with initial sample seed if empty
         const STORAGE_KEY = 'ROFS_dashboard_orders_db_v1';
 
         function getStoredOrders() {
             const data = localStorage.getItem(STORAGE_KEY);
             if (!data) {
-                // Initial Default Sample Booking
                 const defaultSample = [
                     {
                         id: 'ROFS-84920',
@@ -576,7 +619,7 @@
             updateOrdersBadge();
         }
 
-        // Tab Switching Logic
+        // Tab Switching
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -595,7 +638,6 @@
                 activeBtn.classList.add('bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-600/30');
             }
 
-            // Mobile menu auto collapse
             closeMobileMenu();
         }
 
@@ -607,6 +649,25 @@
 
             document.getElementById('computedTotalDisplay').innerText = `₱${total.toLocaleString()}`;
             document.getElementById('passengerMultiplier').innerText = passengerCount;
+        }
+
+        // CREDIT TO CASH CALCULATOR LOGIC
+        function calculateCreditCashout() {
+            const rawAmount = parseFloat(document.getElementById('creditAmount').value) || 0;
+            let fee = 0;
+
+            if (rawAmount > 0) {
+                if (rawAmount < 2000) {
+                    fee = 200; // Fixed ₱200 fee below ₱2,000
+                } else {
+                    fee = rawAmount * 0.10; // 10% fee for ₱2,000 and above
+                }
+            }
+
+            const netReceive = Math.max(0, rawAmount - fee);
+
+            document.getElementById('feeDisplay').innerText = `₱${fee.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('netReceiveDisplay').innerText = `₱${netReceive.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
         }
 
         // Handle Car Booking Submission
@@ -622,7 +683,7 @@
             const notes = document.getElementById('specialNotes').value.trim();
 
             if (!travelDate) {
-                showToast('Pumili ng available trip date!');
+                showToast('Please select an available trip date!');
                 return;
             }
 
@@ -648,7 +709,6 @@
             orders.unshift(newOrder);
             saveOrders(orders);
 
-            // Reset Form & Switch to Orders
             document.getElementById('carBookingForm').reset();
             calculateCarTotal();
             showToast('Booking successfully submitted!');
@@ -658,32 +718,37 @@
         // Handle Credit to Cash Submission
         function handleCreditSubmit(e) {
             e.preventDefault();
-            const provider = document.getElementById('creditProvider').value;
             const amount = parseFloat(document.getElementById('creditAmount').value);
-            const acct = document.getElementById('accountDetails').value.trim();
+            const bank = document.getElementById('payoutBank').value;
+            const accNum = document.getElementById('payoutAccNum').value.trim();
+            const accName = document.getElementById('payoutAccName').value.trim();
+
+            let fee = amount < 2000 ? 200 : amount * 0.10;
+            const netReceive = amount - fee;
 
             const newOrder = {
                 id: 'CASH-' + Math.floor(10000 + Math.random() * 90000),
                 date: new Date().toLocaleString('en-CA', { hour12: false }).replace(',', ''),
                 type: 'Credit to Cash',
                 vehicle: 'N/A',
-                serviceType: provider,
+                serviceType: 'Provider Credit Cashout',
                 tripDate: 'N/A',
                 pickup: 'N/A',
                 dropoff: 'N/A',
                 passengers: 0,
-                customerName: 'Customer (' + acct + ')',
-                contact: acct,
-                total: amount,
+                customerName: accName,
+                contact: accNum,
+                total: netReceive,
                 status: 'Pending',
-                notes: `Encashment request via ${provider}`
+                notes: `Gross Amount: ₱${amount.toLocaleString()} | Fee: ₱${fee.toLocaleString()} | Payout via ${bank} (${accNum})`
             };
 
             const orders = getStoredOrders();
             orders.unshift(newOrder);
             saveOrders(orders);
             document.getElementById('creditForm').reset();
-            showToast('Credit to Cash request submitted!');
+            calculateCreditCashout();
+            showToast('Credit Cashout request submitted!');
             switchTab('myorders');
         }
 
@@ -707,9 +772,9 @@
                 passengers: 0,
                 customerName: handle,
                 contact: handle,
-                total: 500, // standard base fee estimate
+                total: 500,
                 status: 'Pending',
-                notes: `Rank: ${currentR} -> ${targetR}`
+                notes: `Rank/Target: ${currentR} -> ${targetR}`
             };
 
             const orders = getStoredOrders();
@@ -750,7 +815,7 @@
                         </div>
                     `;
                 } else {
-                    detailsHTML = `<div><span class="font-bold text-gray-200">${order.serviceType}</span><p class="text-xs text-gray-400">${order.notes}</p></div>`;
+                    detailsHTML = `<div><span class="font-bold text-emerald-400">${order.serviceType}</span><p class="text-xs text-gray-400">${order.notes}</p></div>`;
                 }
 
                 tr.innerHTML = `
@@ -777,7 +842,6 @@
             const tbody = document.getElementById('adminOrdersTableBody');
             tbody.innerHTML = '';
 
-            // Update stats
             let pending = 0, processing = 0, completed = 0;
 
             orders.forEach(order => {
@@ -798,9 +862,7 @@
                         <p class="text-xs text-gray-400">${order.contact}</p>
                     </td>
                     <td class="p-4 text-xs">
-                        <p><strong class="text-gray-300">Date:</strong> ${order.tripDate || 'N/A'}</p>
-                        <p><strong class="text-gray-300">Route:</strong> ${order.pickup || 'N/A'} -> ${order.dropoff || 'N/A'}</p>
-                        ${order.passengers ? `<p><strong class="text-gray-300">Pax:</strong> ${order.passengers}</p>` : ''}
+                        <p class="text-gray-300">${order.notes}</p>
                     </td>
                     <td class="p-4 font-bold text-emerald-400">₱${order.total.toLocaleString()}</td>
                     <td class="p-4">
@@ -825,11 +887,9 @@
             document.getElementById('statProcessing').innerText = processing;
             document.getElementById('statCompleted').innerText = completed;
 
-            // Re-initialize Lucide Icons for dynamic elements
             lucide.createIcons();
         }
 
-        // Change Order Status in Admin
         function updateOrderStatus(orderId, newStatus) {
             const orders = getStoredOrders();
             const index = orders.findIndex(o => o.id === orderId);
@@ -840,7 +900,6 @@
             }
         }
 
-        // Delete Order in Admin
         function deleteOrder(orderId) {
             if (confirm(`Are you sure you want to remove order ${orderId}?`)) {
                 let orders = getStoredOrders();
@@ -850,7 +909,6 @@
             }
         }
 
-        // Utility: Status Badge styling
         function getStatusBadge(status) {
             switch(status) {
                 case 'Pending':
@@ -871,7 +929,6 @@
             document.getElementById('myOrdersBadge').innerText = orders.length;
         }
 
-        // Toast Helper
         function showToast(message) {
             const toast = document.getElementById('toastBox');
             document.getElementById('toastMsg').innerText = message;
@@ -883,7 +940,6 @@
             }, 3000);
         }
 
-        // Mobile drawer handlers
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const sidebar = document.getElementById('sidebar');
         const mobileOverlay = document.getElementById('mobileOverlay');
@@ -912,10 +968,10 @@
             mobileOverlay.addEventListener('click', closeMobileMenu);
         }
 
-        // Initialize icons and render tables on window load
         window.onload = function() {
             lucide.createIcons();
             calculateCarTotal();
+            calculateCreditCashout();
             renderOrders();
             renderAdminPanel();
             updateOrdersBadge();
