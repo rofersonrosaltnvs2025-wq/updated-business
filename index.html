@@ -124,3 +124,380 @@
                     <!-- BOOKING FORM -->
                     <div class="md:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                         <form id="car-booking-form" onsubmit="submitCarBooking(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Full Name</label>
+                                    <input type="text" id="car-name" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Contact Number</label>
+                                    <input type="tel" id="car-contact" placeholder="09123456789" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Pick-up Location</label>
+                                    <input type="text" id="car-pickup" placeholder="e.g. Antipolo / Manila" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Drop-off Destination</label>
+                                    <input type="text" id="car-dropoff" placeholder="e.g. Clark / Batangas" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Select Available Travel Date</label>
+                                    <select id="car-date" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="">-- Choose Date --</option>
+                                        <option value="Oct 12, 2026">Oct 12, 2026 (Mon)</option>
+                                        <option value="Oct 15, 2026">Oct 15, 2026 (Thu)</option>
+                                        <option value="Oct 18, 2026">Oct 18, 2026 (Sun)</option>
+                                        <option value="Oct 20, 2026">Oct 20, 2026 (Tue)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Number of Passengers</label>
+                                    <select id="car-passengers" onchange="calcCarTotal()" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="1">1 Person (₱750)</option>
+                                        <option value="2">2 Persons (₱1,500)</option>
+                                        <option value="3">3 Persons (₱2,250)</option>
+                                        <option value="4">4 Persons (₱3,000)</option>
+                                        <option value="5">5 Persons (₱3,750)</option>
+                                        <option value="6">6 Persons (₱4,500)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- FARE COMPUTATION DISPLAY -->
+                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 flex justify-between items-center">
+                                <div>
+                                    <span class="text-xs text-gray-500">Total Estimated Fare:</span>
+                                    <h4 class="text-xl font-bold text-blue-600" id="car-total-fare">₱750.00</h4>
+                                </div>
+                                <button type="submit" class="bg-blue-600 text-white font-bold px-6 py-2.5 rounded-lg hover:bg-blue-700 transition">
+                                    Confirm Booking
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. CREDIT TO CASH TAB -->
+            <section id="content-credit-cash" class="content-section hidden">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Credit to Cash Exchange</h2>
+
+                <div class="max-w-2xl bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <form id="credit-cash-form" onsubmit="submitCreditCash(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Provider Service</label>
+                            <input type="text" value="Credit Cashout" disabled class="w-full bg-gray-100 border border-gray-300 rounded-lg p-2.5 text-sm font-semibold text-gray-700">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Cashout Amount (PHP)</label>
+                            <input type="number" id="cc-amount" min="100" placeholder="e.g. 2500" oninput="calcCreditCash()" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                            <p class="text-xs text-gray-400 mt-1">* Fee Rate: Below ₱2,000 = ₱200 fixed fee | ₱2,000 and above = 10% fee</p>
+                        </div>
+
+                        <!-- YOU WILL RECEIVE DISPLAY -->
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 flex justify-between items-center">
+                            <div>
+                                <span class="text-xs text-blue-600 font-semibold uppercase">You Will Receive:</span>
+                                <h3 class="text-2xl font-black text-blue-700" id="cc-receive-amount">₱0.00</h3>
+                            </div>
+                            <div class="text-right text-xs text-gray-500">
+                                <span>Service Fee: </span>
+                                <span id="cc-fee-amount" class="font-bold text-red-500">₱0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Disbursement Method</label>
+                                <select id="cc-bank" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="">-- Choose Bank / E-Wallet --</option>
+                                    <option value="GCASH">GCASH</option>
+                                    <option value="MAYA">MAYA</option>
+                                    <option value="GOTYME">GOTYME</option>
+                                    <option value="MARIBANK">MARIBANK</option>
+                                    <option value="WISE PH">WISE PH</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Account Number</label>
+                                <input type="text" id="cc-acc-num" placeholder="09XXXXXXXXX / Account No." required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Account Holder Name</label>
+                            <input type="text" id="cc-acc-name" placeholder="Juan Dela Cruz" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+
+                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">
+                            Submit Cashout Request
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 4. BOOSTING PANEL TAB -->
+            <section id="content-boosting" class="content-section hidden">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Game Boosting Panel</h2>
+                <div class="max-w-xl bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <form id="boosting-form" onsubmit="submitBoosting(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Select Game Title</label>
+                            <select id="boost-game" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm">
+                                <option value="MIR4">MIR4</option>
+                                <option value="Legend of Ymir">Legend of Ymir</option>
+                                <option value="Mobile Legends">Mobile Legends</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Service Type</label>
+                            <input type="text" id="boost-service" placeholder="e.g. Leveling, Quest Clearance, Power Boost" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">In-Game IGN / ID</label>
+                            <input type="text" id="boost-ign" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm">
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">
+                            Request Boosting Service
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 5. MY ORDERS TAB -->
+            <section id="content-my-orders" class="content-section hidden">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">My Orders & Requests</h2>
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead class="bg-gray-100 text-gray-600 uppercase text-xs">
+                            <tr>
+                                <th class="p-4">Ref ID</th>
+                                <th class="p-4">Service</th>
+                                <th class="p-4">Details</th>
+                                <th class="p-4">Amount</th>
+                                <th class="p-4">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-table-body" class="divide-y divide-gray-200">
+                            <!-- Dynamic Content -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 6. ADMIN PANEL TAB -->
+            <section id="content-admin-panel" class="content-section hidden">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Admin Control Panel</h2>
+                    <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-lock mr-1"></i> Admin Access Mode</span>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-4 bg-gray-50 border-b border-gray-200 font-bold text-sm text-gray-700">
+                        Manage All Customer Transactions
+                    </div>
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead class="bg-gray-100 text-gray-600 uppercase text-xs">
+                            <tr>
+                                <th class="p-4">Ref ID</th>
+                                <th class="p-4">Customer Info</th>
+                                <th class="p-4">Service Details</th>
+                                <th class="p-4">Amount</th>
+                                <th class="p-4">Current Status</th>
+                                <th class="p-4">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-table-body" class="divide-y divide-gray-200">
+                            <!-- Dynamic Content -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        // LocalStorage Order Repository
+        let orders = JSON.parse(localStorage.getItem('wiz_orders')) || [];
+
+        function saveOrders() {
+            localStorage.setItem('wiz_orders', JSON.stringify(orders));
+            renderOrders();
+            renderAdmin();
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active-tab'));
+
+            document.getElementById('content-' + tabId).classList.remove('hidden');
+            document.getElementById('tab-' + tabId).classList.add('active-tab');
+
+            if (tabId === 'my-orders') renderOrders();
+            if (tabId === 'admin-panel') renderAdmin();
+        }
+
+        // CAR BOOKING LOGIC
+        function calcCarTotal() {
+            const count = parseInt(document.getElementById('car-passengers').value) || 1;
+            const total = count * 750;
+            document.getElementById('car-total-fare').innerText = '₱' + total.toLocaleString('en-US', {minimumFractionDigits: 2});
+        }
+
+        function submitCarBooking(e) {
+            e.preventDefault();
+            const count = parseInt(document.getElementById('car-passengers').value);
+            const total = count * 750;
+
+            const order = {
+                id: 'CAR-' + Date.now().toString().slice(-6),
+                service: 'Book a Car (Drop Off)',
+                customer: document.getElementById('car-name').value + ' (' + document.getElementById('car-contact').value + ')',
+                details: `${count} Passengers | ${document.getElementById('car-date').value} | Pick-up: ${document.getElementById('car-pickup').value} -> Drop-off: ${document.getElementById('car-dropoff').value}`,
+                amount: '₱' + total.toLocaleString(),
+                status: 'Pending'
+            };
+
+            orders.unshift(order);
+            saveOrders();
+            alert('Booking submitted successfully! Your Reference ID is ' + order.id);
+            document.getElementById('car-booking-form').reset();
+            calcCarTotal();
+            switchTab('my-orders');
+        }
+
+        // CREDIT TO CASH LOGIC
+        function calcCreditCash() {
+            const amt = parseFloat(document.getElementById('cc-amount').value) || 0;
+            let fee = 0;
+
+            if (amt > 0) {
+                if (amt < 2000) {
+                    fee = 200;
+                } else {
+                    fee = amt * 0.10;
+                }
+            }
+
+            const receive = Math.max(0, amt - fee);
+
+            document.getElementById('cc-fee-amount').innerText = '₱' + fee.toLocaleString('en-US', {minimumFractionDigits: 2});
+            document.getElementById('cc-receive-amount').innerText = '₱' + receive.toLocaleString('en-US', {minimumFractionDigits: 2});
+        }
+
+        function submitCreditCash(e) {
+            e.preventDefault();
+            const amt = parseFloat(document.getElementById('cc-amount').value);
+            let fee = amt < 2000 ? 200 : amt * 0.10;
+            const receive = amt - fee;
+
+            const order = {
+                id: 'CASH-' + Date.now().toString().slice(-6),
+                service: 'Credit to Cash',
+                customer: document.getElementById('cc-acc-name').value,
+                details: `Cashout: ₱${amt.toLocaleString()} via ${document.getElementById('cc-bank').value} (${document.getElementById('cc-acc-num').value})`,
+                amount: '₱' + receive.toLocaleString() + ' (You Receive)',
+                status: 'Pending'
+            };
+
+            orders.unshift(order);
+            saveOrders();
+            alert('Cashout request submitted! Reference ID: ' + order.id);
+            document.getElementById('credit-cash-form').reset();
+            calcCreditCash();
+            switchTab('my-orders');
+        }
+
+        // BOOSTING LOGIC
+        function submitBoosting(e) {
+            e.preventDefault();
+            const order = {
+                id: 'BOOST-' + Date.now().toString().slice(-6),
+                service: 'Game Boosting (' + document.getElementById('boost-game').value + ')',
+                customer: 'IGN: ' + document.getElementById('boost-ign').value,
+                details: 'Service: ' + document.getElementById('boost-service').value,
+                amount: 'Quote Pending',
+                status: 'Pending'
+            };
+
+            orders.unshift(order);
+            saveOrders();
+            alert('Boosting request submitted! Reference ID: ' + order.id);
+            document.getElementById('boosting-form').reset();
+            switchTab('my-orders');
+        }
+
+        // RENDER FUNCTIONS
+        function renderOrders() {
+            const tbody = document.getElementById('orders-table-body');
+            tbody.innerHTML = '';
+
+            if (orders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-gray-400">No active orders found.</td></tr>`;
+                return;
+            }
+
+            orders.forEach(o => {
+                let statusBadge = o.status === 'Completed' ? 'bg-green-100 text-green-800' :
+                                  o.status === 'Processing' ? 'bg-blue-100 text-blue-800' :
+                                  o.status === 'Cancelled' ? 'bg-red-100 text-red-800' : 'bg-yellow-100 text-yellow-800';
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-gray-700">${o.id}</td>
+                        <td class="p-4 font-semibold text-gray-800">${o.service}</td>
+                        <td class="p-4 text-gray-600 text-xs">${o.details}</td>
+                        <td class="p-4 font-bold text-blue-600">${o.amount}</td>
+                        <td class="p-4"><span class="px-2.5 py-1 rounded-full text-xs font-bold ${statusBadge}">${o.status}</span></td>
+                    </tr>
+                `;
+            });
+        }
+
+        function renderAdmin() {
+            const tbody = document.getElementById('admin-table-body');
+            tbody.innerHTML = '';
+
+            if (orders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-gray-400">No orders to manage.</td></tr>`;
+                return;
+            }
+
+            orders.forEach((o, index) => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-gray-700">${o.id}</td>
+                        <td class="p-4 font-medium text-gray-800">${o.customer}</td>
+                        <td class="p-4 text-gray-600 text-xs">${o.service}<br><span class="text-gray-400">${o.details}</span></td>
+                        <td class="p-4 font-bold">${o.amount}</td>
+                        <td class="p-4"><span class="font-bold text-xs">${o.status}</span></td>
+                        <td class="p-4">
+                            <select onchange="updateOrderStatus(${index}, this.value)" class="border border-gray-300 rounded text-xs p-1">
+                                <option value="Pending" ${o.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                                <option value="Processing" ${o.status === 'Processing' ? 'selected' : ''}>Processing</option>
+                                <option value="Completed" ${o.status === 'Completed' ? 'selected' : ''}>Completed</option>
+                                <option value="Cancelled" ${o.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function updateOrderStatus(index, newStatus) {
+            orders[index].status = newStatus;
+            saveOrders();
+        }
+    </script>
+</body>
+</html>
